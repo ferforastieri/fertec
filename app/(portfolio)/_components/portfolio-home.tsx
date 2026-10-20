@@ -41,7 +41,7 @@ export function PortfolioHome(){
       <p className="m-0 max-w-[32ch] md:ml-auto md:max-w-none md:whitespace-pre-line"><TypedText text={t('about')}/></p>
     </div>
     <aside className="home-summary-desktop home-scroll-fade scene-item absolute bottom-[3.5vh] left-[4.5vw] z-12 hidden w-[min(21vw,250px)] text-left text-[color-mix(in_srgb,var(--paper)_88%,transparent)] md:block md:max-[1100px]:w-[210px] md:will-change-[transform,opacity]">
-      <p className="m-0 origin-left -rotate-2 font-display text-[clamp(29px,2.7vw,42px)] leading-none italic"><TypedText text={t('resumeEyebrow')}/></p>
+      <p className="m-0 origin-left -rotate-2 font-display text-[clamp(29px,min(2.7vw,4.6vh),42px)] leading-none italic"><TypedText text={t('resumeEyebrow')}/></p>
       <p className="mt-3 mr-auto mb-0 max-w-[34ch] text-small leading-[1.5] font-[560] text-[color-mix(in_srgb,var(--paper)_92%,transparent)]"><TypedText text={t('resumeIntro')}/></p>
       <HomePillLink className="mt-3" href="/curriculo" label={t('resumeCta')}/>
     </aside>

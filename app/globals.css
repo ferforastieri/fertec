@@ -102,18 +102,21 @@
 
 .route-view:has(.project-explorer){min-height:0}
 
+.editorial-page{width:calc(100% - 36px);margin-inline:auto}
+
 @media(min-width:768px){
   .editorial-page,.experience-section{
     transition:padding-top 340ms cubic-bezier(.22,1,.36,1);
   }
 
-  .scene-shell--nav-bottom .editorial-page{
-    padding-top:clamp(78px,9vh,108px);
+  .editorial-page{
+    width:min(1180px,91vw);
+    /* Reserve the top band occupied by the fixed logo and signature.
+       Below this the page content would slide under the floating chrome. */
+    padding-top:clamp(216px,22vh,232px);
   }
 
-  .scene-shell:not(.scene-shell--nav-bottom) .editorial-page{
-    padding-top:clamp(28px,4vh,48px);
-  }
+  .editorial-page.about-page{width:min(1120px,91vw)}
 
   .scene-shell--nav-bottom .experience-section{
     padding-top:clamp(110px,14vh,170px);
@@ -122,6 +125,21 @@
   .scene-shell:not(.scene-shell--nav-bottom) .experience-section{
     padding-top:clamp(64px,8vh,96px);
   }
+}
+
+@media(min-width:1800px){
+  .editorial-page{width:min(1320px,86vw)}
+  .editorial-page.about-page{width:min(1240px,86vw)}
+  .editorial-page.resume-page{width:min(1220px,86vw)}
+  .experience-heading{max-width:1220px}
+  .timeline-body{max-width:1180px}
+}
+
+/* Short desktop viewports (landscape phones, small windows) cannot afford
+   the full signature band, so keep the header and drop the fixed profile. */
+@media(min-width:768px) and (max-height:600px){
+  .editorial-page{padding-top:92px}
+  .global-profile--corner{display:none}
 }
 
 .custom-cursor__arrow,.custom-cursor__pointer{transition:opacity 120ms ease,transform 180ms cubic-bezier(.22,1,.36,1)}

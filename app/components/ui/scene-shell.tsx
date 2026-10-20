@@ -98,48 +98,29 @@ export function SceneShell({children,className=''}:{children:ReactNode;className
   },[isHome])
 
   useEffect(()=>{
-    if(!isHome||!root.current)return
-    const desktop=matchMedia('(min-width: 768px)')
+    if(!root.current)return
+    const elements=[root.current.querySelector<HTMLElement>('.corner-logo'),root.current.querySelector<HTMLElement>('.global-profile--corner')].filter((element):element is HTMLElement=>Boolean(element))
+    if(!elements.length)return
     const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)')
-    const elements=[
-      [root.current.querySelector<HTMLElement>('.corner-logo'),root.current.querySelector<HTMLElement>('.corner-metrics')],
-      [root.current.querySelector<HTMLElement>('.global-profile--corner'),root.current.querySelector<HTMLElement>('.home-summary')],
-    ] as const
-    const pairs=elements.flatMap(([fixed,moving])=>fixed&&moving?[{fixed,moving}]:[])
-    if(!pairs.length)return
     let raf=0
-    const reset=(element:HTMLElement)=>{element.style.transform='';element.style.opacity='';element.style.pointerEvents='';delete element.dataset.collisionShift}
+    const reset=()=>elements.forEach(element=>{element.style.opacity='';element.style.transform='';element.style.pointerEvents=''})
     const update=()=>{
       raf=0
-      if(!desktop.matches){pairs.forEach(({fixed})=>reset(fixed));return}
-      pairs.forEach(({fixed,moving})=>{
-        const rendered=fixed.getBoundingClientRect()
-        const previousShift=Number(fixed.dataset.collisionShift||0)
-        const natural={left:rendered.left,right:rendered.right,top:rendered.top+previousShift,bottom:rendered.bottom+previousShift,height:rendered.height}
-        const target=moving.getBoundingClientRect()
-        const sharesColumn=target.right>natural.left&&target.left<natural.right
-        const clearance=56
-        const start=natural.bottom+clearance
-        const distance=natural.height+clearance
-        const raw=sharesColumn?Math.min(1,Math.max(0,(start-target.top)/distance)):0
-        const progress=reducedMotion.matches&&raw>0?1:raw
-        const shift=progress*distance
-        fixed.dataset.collisionShift=String(shift)
-        fixed.style.transform=`translate3d(0,${-shift}px,0)`
-        fixed.style.opacity=String(1-progress)
-        fixed.style.pointerEvents=progress>.85?'none':''
+      const distance=Math.max(140,Math.min(200,innerHeight*.2))
+      const progress=Math.min(1,Math.max(0,window.scrollY/distance))
+      elements.forEach(element=>{
+        element.style.opacity=String(1-progress)
+        element.style.transform=reducedMotion.matches?'none':`translate3d(0,${-progress*18}px,0)`
+        element.style.pointerEvents=progress>.9?'none':''
       })
     }
     const schedule=()=>{if(!raf)raf=requestAnimationFrame(update)}
     window.addEventListener('scroll',schedule,{passive:true})
     window.addEventListener('resize',schedule,{passive:true})
-    desktop.addEventListener('change',schedule)
     reducedMotion.addEventListener('change',schedule)
-    const resizeObserver=new ResizeObserver(schedule)
-    pairs.forEach(({fixed,moving})=>{resizeObserver.observe(fixed);resizeObserver.observe(moving)})
     schedule()
-    return()=>{if(raf)cancelAnimationFrame(raf);resizeObserver.disconnect();window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule);desktop.removeEventListener('change',schedule);reducedMotion.removeEventListener('change',schedule);pairs.forEach(({fixed})=>reset(fixed))}
-  },[isHome])
+    return()=>{if(raf)cancelAnimationFrame(raf);window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule);reducedMotion.removeEventListener('change',schedule);reset()}
+  },[pathname])
 
   const dark=theme==='dark'
   const desktopWash=dark?'radial-gradient(circle at 50% 42%,rgba(243,237,228,.07),transparent 32%),linear-gradient(90deg,rgba(10,11,9,.84),rgba(10,11,9,.34) 34%,rgba(10,11,9,.34) 66%,rgba(10,11,9,.84)),linear-gradient(180deg,rgba(10,11,9,.24),rgba(10,11,9,.42))':'radial-gradient(circle at 50% 42%,rgba(255,253,248,.3),transparent 42%),linear-gradient(90deg,rgba(242,237,228,.68),rgba(242,237,228,.28) 34%,rgba(242,237,228,.28) 66%,rgba(242,237,228,.68)),linear-gradient(180deg,rgba(242,237,228,.22),rgba(242,237,228,.48))'

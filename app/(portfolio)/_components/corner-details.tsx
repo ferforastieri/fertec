@@ -20,7 +20,7 @@ export function CornerDetails(){
     </aside>
 
     <aside className="corner-metrics home-scroll-fade scene-item absolute right-[4.5vw] bottom-[3.5vh] z-12 hidden w-[min(21vw,250px)] text-right text-[color-mix(in_srgb,var(--paper)_82%,transparent)] md:block md:max-[1100px]:w-[210px] md:will-change-[transform,opacity]" aria-label={metrics('aria')}>
-      <p className="m-0 origin-right -rotate-2 font-display text-[clamp(29px,2.45vw,40px)] leading-[.92] italic"><TypedText text={`${siteContent.metrics.years} ${metrics('years').toLocaleLowerCase()}`}/></p>
+      <p className="m-0 origin-right -rotate-2 font-display text-[clamp(29px,min(2.45vw,4.4vh),40px)] leading-[.92] italic"><TypedText text={`${siteContent.metrics.years} ${metrics('years').toLocaleLowerCase()}`}/></p>
       <TypedText className="mt-4 ml-auto block max-w-[34ch] text-small leading-[1.5] font-[560] text-[color-mix(in_srgb,var(--paper)_92%,transparent)]" text={`${projects.length} ${metrics('projects').toLocaleLowerCase()}`}/>
       <HomePillLink className="mt-4" href="/projetos" label={home('projectsCta')}/>
     </aside>
