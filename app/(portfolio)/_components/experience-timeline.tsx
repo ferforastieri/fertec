@@ -44,7 +44,7 @@ export function ExperienceTimeline(){
         <h3 className="m-0 font-display text-[clamp(26px,min(2.6vw,4.2vh),36px)] leading-[.95] font-normal">{t(`${key}.position`)}</h3>
         <span className="mt-[9px] block text-label tracking-[.1em] uppercase opacity-50">{t(`${key}.location`)}</span>
         <p className="timeline-summary mt-2.5 mb-0 text-body leading-[1.7] opacity-70 md:mt-[18px]">{t(`${key}.summary`)}</p>
-        {key==='smart'&&<div className={`role-progression mt-2.5 flex flex-wrap items-center justify-start gap-2 text-caption font-bold tracking-[.08em] uppercase md:mt-[18px] ${right?'md:justify-start':'md:justify-end'}`}><span className="rounded-full border border-[color-mix(in_srgb,var(--paper)_28%,transparent)] px-[9px] py-1.5 opacity-62">{t('smart.junior')}</span><i className="font-display text-base not-italic opacity-42" aria-hidden="true">→</i><span className="rounded-full border border-paper bg-paper px-[9px] py-1.5 text-ink opacity-100">{t('smart.pleno')}</span></div>}
+        {key==='smart'&&<div className={`role-progression mt-2.5 flex flex-wrap items-center justify-start gap-2 text-caption font-bold tracking-[.08em] uppercase md:mt-[18px] ${right?'md:justify-start':'md:justify-end'}`}><span className="rounded-lg border border-[color-mix(in_srgb,var(--paper)_28%,transparent)] px-[9px] py-1.5 opacity-62">{t('smart.junior')}</span><i className="font-display text-base not-italic opacity-42" aria-hidden="true">→</i><span className="rounded-lg border border-paper bg-paper px-[9px] py-1.5 text-ink opacity-100">{t('smart.pleno')}</span></div>}
       </article>
     </li>})}</ol></div>
   </section>

@@ -12,7 +12,7 @@ type HomePillLinkProps={
 }
 
 export function HomePillLink({href,label,arrow='external',tone='outline',className='',external=false,onClick}:HomePillLinkProps){
-  const classes=`group inline-flex min-h-9 items-center justify-center gap-2 rounded-full border ${tone==='solid'?'border-paper bg-paper text-ink hover:bg-transparent hover:text-paper':'border-[color-mix(in_srgb,var(--paper)_54%,transparent)] text-inherit hover:bg-paper hover:text-ink'} px-3 py-1.5 text-[10px] font-[760] tracking-[.12em] whitespace-nowrap uppercase no-underline transition-[background,color,transform] duration-250 hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:bg-paper focus-visible:text-ink focus-visible:outline-none md:min-h-8 md:px-3 md:text-[11px] ${className}`
+  const classes=`group inline-flex min-h-9 items-center justify-center gap-2 rounded-lg border ${tone==='solid'?'border-paper bg-paper text-ink hover:bg-transparent hover:text-paper':'border-[color-mix(in_srgb,var(--paper)_54%,transparent)] text-inherit hover:bg-paper hover:text-ink'} px-3 py-1.5 text-[10px] font-[760] tracking-[.12em] whitespace-nowrap uppercase no-underline transition-[background,color,transform] duration-250 hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:bg-paper focus-visible:text-ink focus-visible:outline-none md:min-h-8 md:px-3 md:text-[11px] ${className}`
   const content=<>
     <span>{label}</span>
     {arrow==='down'

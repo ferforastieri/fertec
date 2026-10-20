@@ -136,6 +136,10 @@
   .timeline-body{max-width:1120px}
 }
 
+@media(min-width:1920px){
+  .editorial-page{padding-top:96px}
+}
+
 /* Tablets and narrow desktop windows do not have room for the fixed signature. */
 @media(min-width:768px) and (max-width:1099px){
   .editorial-page{padding-top:88px}
