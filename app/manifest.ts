@@ -1,6 +1,8 @@
 import type {MetadataRoute} from 'next'
 import {siteContent} from '@/messages/site-content'
 
+export const dynamic='force-static'
+
 export default function manifest():MetadataRoute.Manifest{return{
   name:`${siteContent.identity.brand} — ${siteContent.identity.name}`,
   short_name:siteContent.identity.brand,

@@ -3,6 +3,7 @@ import {readFile} from 'node:fs/promises'
 import {join} from 'node:path'
 import {siteContent} from '@/messages/site-content'
 
+export const dynamic='force-static'
 export const alt=`${siteContent.identity.name} — ${siteContent.metadata.description}`
 export const size={width:1200,height:630}
 export const contentType='image/png'

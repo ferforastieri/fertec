@@ -3,7 +3,6 @@
     "main": "Navegación principal",
     "home": "Inicio",
     "projects": "Proyectos",
-    "about": "Sobre mí",
     "resume": "Currículum",
     "contact": "Contactar",
     "theme": "Cambiar tema",
@@ -22,7 +21,7 @@
     "passion": "Apasionado por interfaces, IA y Hardware",
     "role": "Ingeniero Informático\nposgraduado en Gestión de Proyectos.",
     "about": "Sistemas complejos y aplicaciones móviles,\nAPIs REST y plataformas SaaS completas.",
-    "resumeEyebrow": "Perfil profesional",
+    "aboutLabel":"Resumen","resumeEyebrow": "Perfil profesional",
     "resumeIntro": "Experiencia, formación y competencias reunidas en una página.",
     "resumeCta": "Ver currículum",
     "projectsCta": "Ver mis proyectos",
@@ -70,13 +69,5 @@
     "experiences":{"smart":{"company":"Smart S.A","role":"Desarrollador Fullstack · Junior → Semi Senior","location":"Sorocaba, SP","period":"Jun 2023 — actualidad","description":"Desarrollo de plataformas web y móviles, APIs y sistemas internos, desde la definición de funcionalidades hasta arquitectura, pruebas, rendimiento, integraciones y evolución del producto."},"inet":{"company":"4iNet Operadora","role":"Técnico de Redes","location":"Sorocaba, SP","period":"Ene — Jul 2023","description":"Configuración y mantenimiento de redes y sistemas de comunicación, soporte técnico, conectividad y resolución de incidentes de infraestructura."},"getninjas":{"company":"GetNinjas","role":"Técnico Informático","location":"São Paulo, Brasil","period":"2015 — 2023","description":"Soporte de hardware y software, instalación de redes locales, mantenimiento, seguridad y documentación técnica para clientes."}},
     "educationItems":{"administration":{"course":"Técnico en Administración","school":"Colégio Apolo","period":"Ene 2015 — Dic 2017"},"it":{"course":"Técnico en Informática","school":"ETEC Fernando Prestes","period":"Ene 2017 — Dic 2019"},"systems":{"course":"Análisis y Desarrollo de Sistemas","school":"Universidad Paulista · UNIP","period":"Ene 2019 — Dic 2022"},"computer":{"course":"Ingeniería Informática","school":"Centro Universitario Facens","period":"Ene 2017 — Dic 2023"},"ai":{"course":"Posgrado en Inteligencia Artificial","school":"Universidad Paulista · UNIP Sorocaba","period":"Ene 2022 — Dic 2024"},"projectManagement":{"course":"Maestría en Gestión de Proyectos de TI","school":"Fundación Getulio Vargas · FGV","period":"Ene 2024 — actualidad"}},
     "skillGroups":{"frontend":"Interfaces y producto","backend":"Backend e integraciones","data":"Datos y servicios","delivery":"Entrega e infraestructura","management":"Gestión y colaboración"}
-  },
-  "About": {
-    "eyebrow":"Sobre mí","title":"Historias, juegos y la curiosidad por entender las cosas.",
-    "paragraphs":{"writing":"Me gusta escribir porque es cuando las ideas sueltas encuentran ritmo. A veces nace una historia; otras, simplemente una forma mejor de entender lo que pienso.","games":"Los juegos siempre han formado parte de mi vida. Disfruto sus mundos, sus decisiones y esos detalles que hacen desaparecer el tiempo durante unas horas.","making":"También me gusta el hardware, montar, desmontar y descubrir por qué funciona algo. La curiosidad casi siempre comienza con un tornillo de más sobre la mesa.","people":"Valoro las conversaciones honestas, el humor, la gente curiosa y la tranquilidad de aprender sin fingir que ya lo sé todo."},
-    "resumeEyebrow":"Versión profesional","resumeTitle":"¿Quieres ir directo a los hechos?","resumeDescription":"Experiencia, formación y competencias organizadas en una página que también se puede descargar en PDF.","resumeLink":"Ver currículum",
-    "personalEyebrow":"Fragmentos personales","personalTitle":"Curiosidad","personalNote":"Una forma de estar en el mundo.","personalTopics":"Juegos · Hardware · Personas",
-    "interestsEyebrow":"Fuera del trabajo","interestsTitle":"Cosas que me acompañan.",
-    "interests":{"stories":{"title":"Escribir","description":"Relatos, ideas y notas que convierten pensamientos en algo que merece ser compartido."},"worlds":{"title":"Juegos","description":"Narrativas, sistemas y mundos en los que vale la pena perderse — solo o con amigos."},"hardware":{"title":"Hardware","description":"La satisfacción de montar, ajustar y comprender lo que existe detrás de la pantalla."},"learning":{"title":"Aprender","description":"Libros, conversaciones y proyectos personales que empiezan porque una pregunta no se va de la cabeza."}}
   }
 }

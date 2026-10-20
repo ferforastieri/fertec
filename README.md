@@ -19,7 +19,6 @@ Reunir em uma única aplicação o trabalho e a identidade de Fernando sem trans
 
 - **Home:** apresentação, métricas e linha do tempo profissional.
 - **Projetos:** trabalhos pessoais e profissionais, tecnologias, serviços e árvore de cada repositório.
-- **Sobre:** interesses, referências e uma apresentação mais pessoal.
 - **Currículo:** perfil, experiência, formação, competências e geração do PDF diretamente da página.
 - **Sistema visual:** navegação reposicionável, cursor próprio, animações nativas e uma superfície de água interativa aplicada ao fundo global.
 
@@ -35,7 +34,7 @@ Reunir em uma única aplicação o trabalho e a identidade de Fernando sem trans
 | PDF | jsPDF carregado sob demanda |
 | PWA | Web App Manifest, Service Worker e cache offline nativos |
 | SEO | Metadata API, Open Graph gerado, JSON-LD, sitemap e robots |
-| Entrega | Vercel e domínio `fer.tec.br` |
+| Entrega | Cloudflare Workers (Static Assets) e domínio `fer.tec.br` |
 
 ## Arquitetura
 
@@ -43,15 +42,12 @@ Reunir em uma única aplicação o trabalho e a identidade de Fernando sem trans
 app/
 ├── (portfolio)/              # rotas públicas e metadata por página
 │   ├── page.tsx              # home
-│   ├── projetos/             # índice e páginas SSG por slug
-│   ├── sobre/
-│   └── curriculo/
+│   ├── _components/          # componentes exclusivos da home
+│   ├── projetos/             # índice, detalhes e árvore
+│   └── curriculo/            # currículo e exportação PDF
 ├── components/
 │   ├── ui/                   # componentes realmente globais
-│   ├── portfolio/            # componentes exclusivos da home
-│   ├── projects/             # listagem, detalhes e árvore
-│   ├── about/                # módulo Sobre
-│   └── resume/               # módulo Currículo e exportação
+│   └── seo/                  # JSON-LD
 ├── hooks/                    # animações de entrada e scroll
 ├── layout.tsx                # shell, providers, metadata e JSON-LD
 ├── manifest.ts               # manifesto PWA gerado pelo Next.js
@@ -88,11 +84,11 @@ SceneShell global
    └── conteúdo da rota
 ```
 
-O conteúdo estático é renderizado previamente no servidor. Interações que dependem do navegador — animações, preferências, PDF, service worker e a superfície de água — ficam isoladas em Client Components.
+O conteúdo é gerado estaticamente no build. Interações que dependem do navegador — animações, preferências, PDF, service worker e a superfície de água — ficam isoladas em Client Components.
 
 ## Como o efeito de água funciona
 
-O fundo interativo é implementado em [`WaterSurface`](app/components/ui/water-surface.tsx) com WebGL 1.0 e GLSL, sem Three.js ou biblioteca de animação. Um único `canvas` fica fixo atrás das páginas, não recebe eventos diretamente (`pointer-events: none`) e é atualizado por `requestAnimationFrame`.
+O fundo interativo é implementado em [`SignalSurface`](app/components/ui/signal-surface.tsx) com WebGL 1.0 e GLSL, sem Three.js ou biblioteca de animação. Um único `canvas` fica fixo atrás das páginas, não recebe eventos diretamente (`pointer-events: none`) e é atualizado por `requestAnimationFrame`.
 
 ### 1. Estado da onda
 
@@ -190,7 +186,7 @@ npm run typecheck
 npm run build
 ```
 
-Para executar o build local:
+Para servir o build localmente com o runtime do Cloudflare Workers:
 
 ```bash
 npm start
@@ -198,4 +194,10 @@ npm start
 
 ## Deploy
 
-O repositório está configurado para Next.js na Vercel. O build gera páginas estáticas e SSG dentro de `.next`; não é necessário configurar `dist` como diretório de saída.
+O site é exportado como HTML estático para `out/` e publicado como um Worker do Cloudflare com Static Assets, usando o `wrangler.jsonc`. O domínio `fer.tec.br` é atendido pela rota do Worker.
+
+```bash
+npm run deploy
+```
+
+O comando gera o build com a URL canônica de produção e publica o Worker. A configuração de rotas usa `fer.tec.br/*`; nenhum servidor Next.js fica em execução em produção. A autenticação do Wrangler pode vir de `npx wrangler login` ou da variável `CLOUDFLARE_API_TOKEN`.

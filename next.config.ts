@@ -2,11 +2,12 @@ import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 
 const config: NextConfig = {
+  output: 'export',
   allowedDevOrigins: ['192.168.15.10'],
   poweredByHeader: false,
   trailingSlash: true,
   compress: true,
-  images:{remotePatterns:[{protocol:'https',hostname:'images.unsplash.com'}]},
+  images:{unoptimized:true,remotePatterns:[{protocol:'https',hostname:'images.unsplash.com'}]},
   experimental: {
     useTypeScriptCli: false,
   },

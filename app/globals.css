@@ -102,6 +102,9 @@
 
 .route-view:has(.project-explorer){min-height:0}
 
+/* Very narrow phones cannot fit both hero CTAs above the fixed navigation. */
+@media(max-width:380px){.scroll-cue{display:none}}
+
 .editorial-page{width:calc(100% - 36px);margin-inline:auto}
 
 @media(min-width:768px){

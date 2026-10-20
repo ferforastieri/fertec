@@ -1,6 +1,7 @@
 import {ImageResponse} from 'next/og'
 import {TechMonogram} from '@/app/components/ui/tech-monogram'
 
+export const dynamic='force-static'
 export const size={width:128,height:128}
 export const contentType='image/png'
 

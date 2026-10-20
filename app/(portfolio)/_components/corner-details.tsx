@@ -10,13 +10,22 @@ export function CornerDetails(){
   const metrics=useTranslations('Metrics')
   const home=useTranslations('Home')
 
-  const mobileMetric='grid min-h-14 w-full place-items-center border-x-0 border-t-0 border-b border-[color-mix(in_srgb,var(--paper)_22%,transparent)] px-1.5 py-[11px] text-center font-display text-[clamp(27px,8vw,36px)] leading-[.94] font-normal tracking-[-.03em] whitespace-nowrap text-paper'
+  const mobileMetric='block font-display text-[clamp(30px,9vw,38px)] leading-none text-paper'
+  const mobileLabel='mt-1 block text-[9px] leading-[1.3] font-[760] tracking-[.12em] uppercase text-[color-mix(in_srgb,var(--paper)_72%,transparent)]'
 
   return <>
-    <aside className="corner-metrics scene-item static order-3 z-12 mx-auto block w-full max-w-[280px] self-center text-center text-[color-mix(in_srgb,var(--paper)_82%,transparent)] md:hidden" aria-label={metrics('aria')}>
-      <p className={mobileMetric}><TypedText text={`${siteContent.metrics.years} ${metrics('years').toLocaleLowerCase()}`}/></p>
-      <p className={mobileMetric}><TypedText text={`${projects.length} ${metrics('projects').toLocaleLowerCase()}`}/></p>
-      <HomePillLink className="mx-auto mt-3.5 min-h-11! w-[min(100%,184px)]!" href="/projetos" label={home('mobileProjectsCta')}/>
+    <aside className="corner-metrics scene-item static order-3 z-12 mx-auto block w-full max-w-[320px] self-center text-center md:hidden" aria-label={metrics('aria')}>
+      <div className="grid grid-cols-2 border-y border-[color-mix(in_srgb,var(--paper)_22%,transparent)]">
+        <div className="px-2 py-3">
+          <span className={mobileMetric}>{siteContent.metrics.years}</span>
+          <span className={mobileLabel}>{metrics('years')}</span>
+        </div>
+        <div className="border-l border-[color-mix(in_srgb,var(--paper)_22%,transparent)] px-2 py-3">
+          <span className={mobileMetric}>{projects.length}</span>
+          <span className={mobileLabel}>{metrics('projects')}</span>
+        </div>
+      </div>
+      <HomePillLink className="mx-auto mt-3.5 min-h-11! w-[min(100%,220px)]!" href="/projetos" label={home('mobileProjectsCta')} tone="solid"/>
     </aside>
 
     <aside className="corner-metrics home-scroll-fade scene-item absolute right-[4.5vw] bottom-[3.5vh] z-12 hidden w-[min(21vw,250px)] text-right text-[color-mix(in_srgb,var(--paper)_82%,transparent)] md:block md:max-[1100px]:w-[210px] md:will-change-[transform,opacity]" aria-label={metrics('aria')}>

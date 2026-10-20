@@ -18,13 +18,6 @@ export function useScrollReveal(root:RefObject<RevealRoot>,selector:string){
     const route=pathname.replace(/\/$/,'')||'/'
 
     const keyframes=(index:number):Keyframe[]=>{
-      if(route==='/sobre'){
-        const direction=index%2===0?-1:1
-        return [
-          {opacity:0,transform:`translate3d(${direction*38}px,22px,0)`,clipPath:`inset(0 ${direction<0?'0':'18%'} 0 ${direction<0?'18%':'0'})`,filter:'blur(7px)'},
-          {opacity:1,transform:'translate3d(0,0,0)',clipPath:'inset(0 0 0 0)',filter:'blur(0)'},
-        ]
-      }
       if(route==='/curriculo')return [
         {opacity:0,transform:'perspective(900px) rotateX(7deg) translateY(34px)',filter:'blur(7px)'},
         {opacity:1,transform:'perspective(900px) rotateX(0) translateY(0)',filter:'blur(0)'},

@@ -6,7 +6,7 @@ export const siteUrl=new URL(configuredUrl.startsWith('http')?configuredUrl:`htt
 
 export function pageMetadata(title:string,description:string,path:string):Metadata{
   const socialTitle=`${title} — ${siteContent.identity.name}`
-  const socialImage='/opengraph-image/?social=v2'
+  const socialImage='/opengraph-image.png'
   return {
     title,
     description,

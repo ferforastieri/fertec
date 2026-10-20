@@ -4,12 +4,10 @@ import {useEffect,useRef,type CSSProperties,type ReactNode} from 'react'
 import {usePathname} from 'next/navigation'
 import {SignalSurface} from './signal-surface'
 import {usePreferences} from './preferences-provider'
-import {siteContent} from '@/messages/site-content'
 
 export function SceneShell({children,className=''}:{children:ReactNode;className?:string}){
   const {navPosition,theme}=usePreferences()
   const pathname=usePathname()
-  const isAbout=pathname.replace(/\/$/,'')==='/sobre'
   const isHome=(pathname.replace(/\/$/,'')||'/')==='/'
   const root=useRef<HTMLElement>(null)
   const cursor=useRef<HTMLDivElement>(null)
@@ -46,13 +44,11 @@ export function SceneShell({children,className=''}:{children:ReactNode;className
     const route=pathname.replace(/\/$/,'')||'/'
     const frames:Keyframe[]=route==='/'
       ?[{opacity:0,transform:'scale(.965) translateY(18px)',filter:'blur(14px)'},{opacity:1,transform:'scale(1) translateY(0)',filter:'blur(0)'}]
-      :route==='/sobre'
-        ?[{opacity:0,transform:'translate3d(54px,0,0)',clipPath:'inset(0 0 0 18%)',filter:'blur(8px)'},{opacity:1,transform:'translate3d(0,0,0)',clipPath:'inset(0 0 0 0)',filter:'blur(0)'}]
-        :route==='/curriculo'
-          ?[{opacity:0,transform:'perspective(1200px) rotateX(5deg) translateY(38px)',filter:'blur(9px)'},{opacity:1,transform:'perspective(1200px) rotateX(0) translateY(0)',filter:'blur(0)'}]
-          :route.startsWith('/projetos/')
-              ?[{opacity:0,transform:'translate3d(-44px,22px,0) scale(.98)',filter:'blur(10px)'},{opacity:1,transform:'translate3d(0,0,0) scale(1)',filter:'blur(0)'}]
-              :[{opacity:0,transform:'translateY(48px) skewY(.8deg)',filter:'blur(10px)'},{opacity:1,transform:'translateY(0) skewY(0)',filter:'blur(0)'}]
+      :route==='/curriculo'
+        ?[{opacity:0,transform:'perspective(1200px) rotateX(5deg) translateY(38px)',filter:'blur(9px)'},{opacity:1,transform:'perspective(1200px) rotateX(0) translateY(0)',filter:'blur(0)'}]
+        :route.startsWith('/projetos/')
+          ?[{opacity:0,transform:'translate3d(-44px,22px,0) scale(.98)',filter:'blur(10px)'},{opacity:1,transform:'translate3d(0,0,0) scale(1)',filter:'blur(0)'}]
+          :[{opacity:0,transform:'translateY(48px) skewY(.8deg)',filter:'blur(10px)'},{opacity:1,transform:'translateY(0) skewY(0)',filter:'blur(0)'}]
     view.style.transformOrigin=route==='/curriculo'?'50% 0':'50% 50%'
     view.style.willChange='opacity, transform, filter'
     const motion=view.animate(frames,{duration:920,easing:'cubic-bezier(.16,1,.3,1)',fill:'both'})
@@ -125,12 +121,11 @@ export function SceneShell({children,className=''}:{children:ReactNode;className
   const dark=theme==='dark'
   const desktopWash=dark?'radial-gradient(circle at 50% 42%,rgba(243,237,228,.07),transparent 32%),linear-gradient(90deg,rgba(10,11,9,.84),rgba(10,11,9,.34) 34%,rgba(10,11,9,.34) 66%,rgba(10,11,9,.84)),linear-gradient(180deg,rgba(10,11,9,.24),rgba(10,11,9,.42))':'radial-gradient(circle at 50% 42%,rgba(255,253,248,.3),transparent 42%),linear-gradient(90deg,rgba(242,237,228,.68),rgba(242,237,228,.28) 34%,rgba(242,237,228,.28) 66%,rgba(242,237,228,.68)),linear-gradient(180deg,rgba(242,237,228,.22),rgba(242,237,228,.48))'
   const mobileWash=dark?'linear-gradient(rgba(10,11,9,.58),rgba(10,11,9,.76))':'linear-gradient(rgba(246,242,234,.42),rgba(246,242,234,.62))'
-  const washStyle={'--desktop-wash':isAbout?'transparent':desktopWash,'--mobile-wash':isAbout?'transparent':mobileWash} as CSSProperties
+  const washStyle={'--desktop-wash':desktopWash,'--mobile-wash':mobileWash} as CSSProperties
 
-  return <main ref={root} data-nav-position={navPosition} className={`scene-shell scene-shell--nav-${navPosition}${isAbout?' scene-shell--about':''}${isHome?' scene-shell--home':''} relative isolate min-h-svh overflow-x-hidden bg-ink text-paper ${className}`}>
+  return <main ref={root} data-nav-position={navPosition} className={`scene-shell scene-shell--nav-${navPosition}${isHome?' scene-shell--home':''} relative isolate min-h-svh overflow-x-hidden bg-ink text-paper ${className}`}>
     <div className={`server-layer pointer-events-none fixed inset-0 -z-20 bg-cover bg-center max-md:bg-[position:54%_center] ${dark?'[filter:sepia(.28)_saturate(.5)_contrast(.9)]':'opacity-42 [filter:grayscale(.62)_sepia(.2)_contrast(.82)_brightness(1.18)]'}`} style={{backgroundImage:"linear-gradient(rgba(12,13,13,.62),rgba(12,13,13,.7)),url('https://images.pexels.com/photos/5408005/pexels-photo-5408005.jpeg?auto=compress&cs=tinysrgb&w=1920')"}} aria-hidden="true"/>
-    {isAbout&&<div className={`about-shell-background pointer-events-none fixed inset-0 -z-20 bg-cover bg-center after:absolute after:inset-0 after:content-[''] max-md:bg-[position:58%_center] ${dark?'[filter:grayscale(.88)_sepia(.18)_contrast(1.08)_brightness(.42)] after:bg-[linear-gradient(90deg,rgba(15,15,13,.82),rgba(15,15,13,.48)_52%,rgba(15,15,13,.78)),linear-gradient(180deg,rgba(15,15,13,.18),rgba(15,15,13,.58))] max-md:[filter:grayscale(.9)_sepia(.2)_contrast(1.05)_brightness(.34)]':'opacity-38 [filter:grayscale(.82)_sepia(.18)_contrast(.78)_brightness(1.1)] after:bg-[rgba(246,242,234,.42)]'}`} style={{backgroundImage:`url(${siteContent.assets.aboutBook})`}} aria-hidden="true"/>}
-    <SignalSurface imageSrc={isAbout?siteContent.assets.aboutBook:undefined} dimmed={isAbout}/>
+    <SignalSurface/>
     <div className="paper-wash pointer-events-none fixed inset-0 -z-10 [background:var(--desktop-wash)] max-md:[background:var(--mobile-wash)]" style={washStyle} aria-hidden="true"/>
     <div ref={cursor} className="custom-cursor pointer-events-none fixed top-[-2px] left-[-2px] z-80 h-[30px] w-6 origin-[2px_2px] opacity-0 will-change-[transform,opacity] max-md:hidden" data-variant="default" aria-hidden="true">
       <span className="custom-cursor__arrow absolute inset-0 before:absolute before:inset-0 before:bg-ink before:content-[''] before:[clip-path:polygon(0_0,100%_61%,61%_66%,49%_100%,35%_94%,47%_64%,17%_78%)] after:absolute after:inset-0.5 after:bg-paper after:content-[''] after:[clip-path:polygon(0_0,100%_61%,61%_66%,49%_100%,35%_94%,47%_64%,17%_78%)]"/>

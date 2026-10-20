@@ -4,7 +4,7 @@ import {useCallback,useEffect,useRef} from 'react'
 import {usePathname,useRouter} from 'next/navigation'
 import {useTranslations} from 'next-intl'
 
-const pages=['/','/projetos','/sobre','/curriculo'] as const
+const pages=['/','/projetos','/curriculo'] as const
 
 function pageIndex(pathname:string){
   const route=pathname.replace(/\/$/,'')||'/'

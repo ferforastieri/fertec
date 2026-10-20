@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "NEXT_PUBLIC_SITE_URL=https://fer.tec.br next build && node scripts/prepare-export.mjs",
+    "start": "wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
     "typecheck": "tsc --noEmit --incremental false"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "@types/react-dom": "^19.2.3",
     "postcss": "^8.5.26",
     "tailwindcss": "^4.3.3",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.151.2"
   }
 }

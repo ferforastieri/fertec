@@ -5,13 +5,14 @@ type HomePillLinkProps={
   href:string
   label:string
   arrow?:'external'|'down'
+  tone?:'outline'|'solid'
   className?:string
   external?:boolean
   onClick?:MouseEventHandler<HTMLAnchorElement>
 }
 
-export function HomePillLink({href,label,arrow='external',className='',external=false,onClick}:HomePillLinkProps){
-  const classes=`group inline-flex min-h-10 items-center justify-center gap-3 rounded-full border border-[color-mix(in_srgb,var(--paper)_54%,transparent)] px-4 py-2 text-caption font-[760] tracking-[.12em] whitespace-nowrap text-inherit uppercase no-underline transition-[background,color,transform] duration-250 hover:-translate-y-0.5 hover:bg-paper hover:text-ink focus-visible:-translate-y-0.5 focus-visible:bg-paper focus-visible:text-ink focus-visible:outline-none md:min-h-9 md:px-[15px] md:text-label ${className}`
+export function HomePillLink({href,label,arrow='external',tone='outline',className='',external=false,onClick}:HomePillLinkProps){
+  const classes=`group inline-flex min-h-10 items-center justify-center gap-3 rounded-full border ${tone==='solid'?'border-paper bg-paper text-ink hover:bg-transparent hover:text-paper':'border-[color-mix(in_srgb,var(--paper)_54%,transparent)] text-inherit hover:bg-paper hover:text-ink'} px-4 py-2 text-caption font-[760] tracking-[.12em] whitespace-nowrap uppercase no-underline transition-[background,color,transform] duration-250 hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:bg-paper focus-visible:text-ink focus-visible:outline-none md:min-h-9 md:px-[15px] md:text-label ${className}`
   const content=<>
     <span>{label}</span>
     {arrow==='down'
