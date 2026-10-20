@@ -46,7 +46,7 @@ export function PortfolioHome(){
       <p className="mt-3 mr-auto mb-0 max-w-[34ch] text-caption leading-[1.5] font-[560] text-[color-mix(in_srgb,var(--paper)_92%,transparent)]"><TypedText text={t('resumeIntro')}/></p>
       <HomePillLink className="mt-3" href="/curriculo" label={t('resumeCta')}/>
     </aside>
-    <HomePillLink className="scroll-cue scene-item static z-20 order-4 mx-auto w-max transition-[transform,background-color,color] duration-340 ease-[cubic-bezier(.22,1,.36,1)] max-md:translate-y-13 [[data-nav-position=bottom]_&]:max-md:translate-y-0 md:absolute md:right-0 md:bottom-[clamp(24px,3.5vh,42px)] md:left-0 md:transition-[bottom,background-color,color,transform] [[data-nav-position=bottom]_&]:md:bottom-22" href="#experiencia" label={t('scroll')} arrow="down" onClick={showExperienceAndFooter}/>
+    <Link className="scroll-cue scene-item static z-20 order-4 mx-auto inline-flex w-max items-center gap-2 text-caption font-[760] tracking-[.14em] uppercase no-underline opacity-65 transition-opacity duration-200 hover:opacity-100 md:absolute md:right-0 md:bottom-[clamp(24px,3.5vh,42px)] md:left-0 md:transition-[bottom,opacity] [[data-nav-position=bottom]_&]:md:bottom-22" href="#experiencia" onClick={showExperienceAndFooter}><span>{t('scroll')}</span><span className="text-base font-normal opacity-70" aria-hidden="true">↓</span></Link>
   </div>
   <div id="experiencia-home"><ExperienceTimeline/><GlobalFooter/></div>
 </>}
