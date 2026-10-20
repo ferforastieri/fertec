@@ -196,8 +196,11 @@ npm start
 
 O site é exportado como HTML estático para `out/` e publicado como um Worker do Cloudflare com Static Assets, usando o `wrangler.jsonc`. O domínio `fer.tec.br` é atendido pela rota do Worker.
 
-```bash
-npm run deploy
-```
+O deploy é feito pelo **Cloudflare Workers Builds**, conectado ao repositório no painel da Cloudflare. A configuração do trigger de produção é:
 
-O comando gera o build com a URL canônica de produção e publica o Worker. A configuração de rotas usa `fer.tec.br/*`; nenhum servidor Next.js fica em execução em produção. A autenticação do Wrangler pode vir de `npx wrangler login` ou da variável `CLOUDFLARE_API_TOKEN`.
+- Branch: `main`
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Root directory: `/`
+
+Cada push na `main` dispara o build e o deploy automaticamente. Nenhum servidor Next.js fica em execução em produção.

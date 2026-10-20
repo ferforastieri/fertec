@@ -7,7 +7,6 @@
     "dev": "next dev",
     "build": "NEXT_PUBLIC_SITE_URL=https://fer.tec.br next build && node scripts/prepare-export.mjs",
     "start": "wrangler dev",
-    "deploy": "npm run build && wrangler deploy",
     "typecheck": "tsc --noEmit --incremental false"
   },
   "dependencies": {
