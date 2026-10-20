@@ -114,28 +114,24 @@
 
   .editorial-page{
     width:min(1180px,91vw);
-    /* Reserve the top band occupied by the fixed logo and signature.
-       Below this the page content would slide under the floating chrome. */
-    padding-top:clamp(216px,22vh,232px);
+    /* Reserve a compact band for the fixed logo and signature. */
+    padding-top:clamp(112px,12vh,124px);
   }
 
-  .editorial-page.about-page{width:min(1120px,91vw)}
-
   .scene-shell--nav-bottom .experience-section{
-    padding-top:clamp(110px,14vh,170px);
+    padding-top:clamp(96px,12vh,144px);
   }
 
   .scene-shell:not(.scene-shell--nav-bottom) .experience-section{
-    padding-top:clamp(64px,8vh,96px);
+    padding-top:clamp(56px,7vh,84px);
   }
 }
 
 @media(min-width:1800px){
-  .editorial-page{width:min(1320px,86vw)}
-  .editorial-page.about-page{width:min(1240px,86vw)}
-  .editorial-page.resume-page{width:min(1220px,86vw)}
-  .experience-heading{max-width:1220px}
-  .timeline-body{max-width:1180px}
+  .editorial-page{width:min(1240px,86vw)}
+  .editorial-page.resume-page{width:min(1180px,86vw)}
+  .experience-heading{max-width:1160px}
+  .timeline-body{max-width:1120px}
 }
 
 /* Short desktop viewports (landscape phones, small windows) cannot afford

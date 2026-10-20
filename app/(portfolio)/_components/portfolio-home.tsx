@@ -29,9 +29,9 @@ export function PortfolioHome(){
     <CornerDetails/>
 
     <section className="home-stage order-1 grid min-h-0 w-full place-items-center p-0 md:relative md:row-start-1 md:block md:min-h-[500px] md:py-20" aria-labelledby="portfolio-title">
-      <div className="central-composition static flex w-full flex-col items-center gap-2.5 md:absolute md:top-1/2 md:left-1/2 md:w-[min(82vw,1120px)] md:-translate-x-1/2 md:-translate-y-1/2 md:gap-[clamp(18px,2.2vh,30px)]">
+      <div className="central-composition static flex w-full flex-col items-center gap-2.5 md:absolute md:top-1/2 md:left-1/2 md:w-[min(76vw,1000px)] md:-translate-x-1/2 md:-translate-y-1/2 md:gap-[clamp(16px,2vh,26px)]">
         <AnimatedIdentity passion={t('passion')} role={t('role')}/>
-        <Card className="scene-portrait relative z-10 mx-auto mt-5 aspect-square w-[clamp(132px,42vw,170px)] shrink-0 overflow-hidden rounded-[20px] p-0 shadow-[0_25px_50px_-12px_rgba(0,0,0,.5)] max-[380px]:mt-3 max-[380px]:w-[132px] md:mt-0 md:w-[clamp(138px,16vw,220px)] md:rounded-3xl">
+        <Card className="scene-portrait relative z-10 mx-auto mt-5 aspect-square w-[clamp(120px,38vw,150px)] shrink-0 overflow-hidden rounded-[20px] p-0 shadow-[0_25px_50px_-12px_rgba(0,0,0,.5)] max-[380px]:mt-3 max-[380px]:w-[124px] md:mt-0 md:w-[clamp(130px,14vw,190px)] md:rounded-3xl">
           <Image src="/assets/fernando.png" alt={t('portraitAlt')} fill priority sizes="(max-width: 768px) 170px, 285px" className="object-cover"/>
         </Card>
       </div>
@@ -42,8 +42,8 @@ export function PortfolioHome(){
       <p className="m-0 max-w-[32ch] md:ml-auto md:max-w-none md:whitespace-pre-line"><TypedText text={t('about')}/></p>
     </div>
     <aside className="home-summary-desktop home-scroll-fade scene-item absolute bottom-[3.5vh] left-[4.5vw] z-12 hidden w-[min(21vw,250px)] text-left text-[color-mix(in_srgb,var(--paper)_88%,transparent)] md:block md:max-[1100px]:w-[210px] md:will-change-[transform,opacity]">
-      <p className="m-0 origin-left -rotate-2 font-display text-[clamp(29px,min(2.7vw,4.6vh),42px)] leading-none italic"><TypedText text={t('resumeEyebrow')}/></p>
-      <p className="mt-3 mr-auto mb-0 max-w-[34ch] text-small leading-[1.5] font-[560] text-[color-mix(in_srgb,var(--paper)_92%,transparent)]"><TypedText text={t('resumeIntro')}/></p>
+      <p className="m-0 origin-left -rotate-2 font-display text-[clamp(24px,2vw,30px)] leading-none italic"><TypedText text={t('resumeEyebrow')}/></p>
+      <p className="mt-3 mr-auto mb-0 max-w-[34ch] text-caption leading-[1.5] font-[560] text-[color-mix(in_srgb,var(--paper)_92%,transparent)]"><TypedText text={t('resumeIntro')}/></p>
       <HomePillLink className="mt-3" href="/curriculo" label={t('resumeCta')}/>
     </aside>
     <HomePillLink className="scroll-cue scene-item static z-20 order-4 mx-auto w-max transition-[transform,background-color,color] duration-340 ease-[cubic-bezier(.22,1,.36,1)] max-md:translate-y-13 [[data-nav-position=bottom]_&]:max-md:translate-y-0 md:absolute md:right-0 md:bottom-[clamp(24px,3.5vh,42px)] md:left-0 md:transition-[bottom,background-color,color,transform] [[data-nav-position=bottom]_&]:md:bottom-22" href="#experiencia" label={t('scroll')} arrow="down" onClick={showExperienceAndFooter}/>
