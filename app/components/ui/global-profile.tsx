@@ -12,7 +12,7 @@ import {siteContent} from '@/messages/site-content'
 
 export function GlobalProfileCorner(){
   const profile=useTranslations('Profile')
-  return <aside className="global-profile global-profile--corner scene-item relative z-30 mx-auto mt-6 mb-[calc(32px+env(safe-area-inset-bottom))] hidden w-[min(calc(100%_-_48px),300px)] border-t border-[color-mix(in_srgb,var(--paper)_32%,transparent)] pt-6 text-center text-[color-mix(in_srgb,var(--paper)_92%,transparent)] md:fixed md:top-[26px] md:right-[4.5vw] md:m-0 md:block md:w-[min(30vw,280px)] md:border-0 md:pt-0 md:text-right md:will-change-[transform,opacity]">
+  return <aside className="global-profile global-profile--corner scene-item relative z-30 mx-auto mt-6 mb-[calc(32px+env(safe-area-inset-bottom))] hidden w-[min(calc(100%_-_48px),300px)] border-t border-[color-mix(in_srgb,var(--paper)_32%,transparent)] pt-6 text-center text-[color-mix(in_srgb,var(--paper)_92%,transparent)] md:fixed md:top-[26px] md:right-[4.5vw] md:m-0 md:block md:w-[min(32vw,300px)] md:border-0 md:pt-0 md:text-right md:will-change-[transform,opacity]">
       <p className="global-profile__signature m-0 origin-center -rotate-3 font-display text-[clamp(28px,8vw,35px)] leading-none italic md:origin-right md:text-[clamp(24px,2.2vw,32px)]"><TypedText text={profile('signature')}/></p>
       <p className="global-profile__introduction mt-2 mb-0 ml-auto max-w-[30ch] text-[10px] leading-[1.4] font-[560] text-[color-mix(in_srgb,var(--paper)_88%,transparent)] md:whitespace-pre-line"><TypedText text={profile('introduction')}/></p>
       <HomePillLink className="mt-2" href={siteContent.contacts.linkedin} label={profile('cta')} external/>
