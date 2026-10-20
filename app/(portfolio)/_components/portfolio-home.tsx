@@ -16,11 +16,10 @@ import {ExperienceTimeline} from './experience-timeline'
 export function PortfolioHome(){
   const t=useTranslations('Home')
   const showExperienceAndFooter:MouseEventHandler<HTMLAnchorElement>=event=>{
-    if(!matchMedia('(min-width: 768px)').matches)return
-    const section=document.getElementById('experiencia-home')
+    const section=document.getElementById('experiencia')
     if(!section)return
     event.preventDefault()
-    section.scrollIntoView({behavior:'smooth',block:'end'})
+    section.scrollIntoView({behavior:'smooth',block:'start'})
     history.replaceState(null,'','#experiencia')
   }
   return <>

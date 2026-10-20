@@ -112,6 +112,8 @@
     transition:padding-top 340ms cubic-bezier(.22,1,.36,1);
   }
 
+  .experience-section{scroll-margin-top:72px}
+
   .editorial-page{
     width:min(1180px,91vw);
     /* Reserve a compact band for the fixed logo and signature. */
