@@ -13,9 +13,9 @@ function pageIndex(pathname:string){
 }
 
 function Arrow({direction,disabled,onClick,label}:{direction:'previous'|'next';disabled:boolean;onClick:()=>void;label:string}){
-  return <button className={`group pointer-events-auto fixed top-1/2 z-20 hidden h-14 w-10 -translate-y-1/2 place-items-center border-0 bg-transparent text-paper opacity-45 transition-opacity duration-300 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-15 md:grid ${direction==='previous'?'left-[1.2vw]':'right-[1.2vw]'}`} type="button" onClick={onClick} disabled={disabled} aria-label={label}>
-    <span className="grid h-9 w-9 place-items-center rounded-full border border-current bg-[color-mix(in_srgb,var(--ink)_35%,transparent)] backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 group-focus-visible:scale-110">
-      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={direction==='previous'?'m15 5-7 7 7 7':'m9 5 7 7-7 7'}/></svg>
+  return <button className={`group pointer-events-auto fixed top-1/2 z-20 hidden h-14 w-10 -translate-y-1/2 place-items-center border-0 bg-transparent text-paper opacity-45 transition-opacity duration-300 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-15 lg:grid ${direction==='previous'?'left-[1.2vw]':'right-[1.2vw]'}`} type="button" onClick={onClick} disabled={disabled} aria-label={label}>
+    <span className="grid h-8 w-8 place-items-center rounded-full border border-current bg-[color-mix(in_srgb,var(--ink)_35%,transparent)] backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 group-focus-visible:scale-110">
+      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={direction==='previous'?'m15 5-7 7 7 7':'m9 5 7 7-7 7'}/></svg>
     </span>
   </button>
 }

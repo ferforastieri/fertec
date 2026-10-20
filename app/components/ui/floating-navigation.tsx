@@ -9,7 +9,7 @@ import {SocialIcon} from './social-icon'
 import {siteContent} from '@/messages/site-content'
 
 const iconClass='nav-icon h-[15px] w-[15px] md:h-[18px] md:w-[18px]'
-const controlBase='nav-control h-10 w-10 place-items-center rounded-full border-0 bg-transparent p-0 text-inherit no-underline transition-colors duration-200 hover:bg-paper hover:text-ink focus-visible:bg-paper focus-visible:text-ink focus-visible:shadow-[inset_0_0_0_1px_var(--ink),0_0_0_2px_var(--paper)] focus-visible:outline-none'
+const controlBase='nav-control h-9 w-9 place-items-center rounded-full border-0 bg-transparent p-0 text-inherit no-underline transition-colors duration-200 hover:bg-paper hover:text-ink focus-visible:bg-paper focus-visible:text-ink focus-visible:shadow-[inset_0_0_0_1px_var(--ink),0_0_0_2px_var(--paper)] focus-visible:outline-none'
 const activeBackground='bg-[color-mix(in_srgb,var(--paper)_16%,transparent)]'
 
 function Icon({children}:{children:ReactNode}){return <svg className={iconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{children}</svg>}

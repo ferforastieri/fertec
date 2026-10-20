@@ -115,7 +115,7 @@
   .editorial-page{
     width:min(1180px,91vw);
     /* Reserve a compact band for the fixed logo and signature. */
-    padding-top:clamp(112px,12vh,124px);
+    padding-top:clamp(140px,13vh,148px);
   }
 
   .scene-shell--nav-bottom .experience-section{
@@ -132,6 +132,12 @@
   .editorial-page.resume-page{width:min(1180px,86vw)}
   .experience-heading{max-width:1160px}
   .timeline-body{max-width:1120px}
+}
+
+/* Tablets and narrow desktop windows do not have room for the fixed signature. */
+@media(min-width:768px) and (max-width:1099px){
+  .editorial-page{padding-top:88px}
+  .global-profile--corner{display:none}
 }
 
 /* Short desktop viewports (landscape phones, small windows) cannot afford
