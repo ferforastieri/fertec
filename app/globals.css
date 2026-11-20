@@ -158,7 +158,10 @@
 .custom-cursor[data-variant='pointer'] .custom-cursor__arrow{opacity:0;transform:scale(.72) rotate(8deg)}
 .custom-cursor[data-variant='pointer'] .custom-cursor__pointer{opacity:1;transform:scale(1) rotate(0)}
 
-@media(hover:hover) and (pointer:fine){html,html *,html *::before,html *::after{cursor:none!important}}
+/* The branded cursor replaces the native one only where it is mounted:
+   the portfolio scene and the admin panel. Everywhere else keeps the
+   native cursor so a pointer is never invisible. */
+@media(hover:hover) and (pointer:fine){.scene-shell,.scene-shell *,.scene-shell *::before,.scene-shell *::after,.admin-shell,.admin-shell *,.admin-shell *::before,.admin-shell *::after{cursor:none!important}}
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important}
   .home-pill-link__down-arrow{animation:none!important}
