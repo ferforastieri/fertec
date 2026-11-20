@@ -19,6 +19,22 @@ npx wrangler secret put ADMIN_SETUP_TOKEN           # invente uma senha longa s�
 
 ## Publicar
 
+O Worker `fertec` está ligado ao repositório `ferforastieri/fertec` pelo Workers Builds: todo push na `main` builda e publica sozinho, sem rodar nada daqui.
+
+Configuração usada no painel (Settings → Build):
+
+| Campo | Valor |
+| --- | --- |
+| Build command | `npx opennextjs-cloudflare build` |
+| Deploy command | `npx wrangler deploy` |
+| Production branch | `main` |
+| Variável de build | `NEXT_PUBLIC_SITE_URL=https://fer.tec.br` |
+| Variável de build | `SWC_NATIVE_BINDING_CACHE_SKIP_SECURITY_CHECK=1` |
+
+A última é contorno para o `@swc/core` 1.16.x, que rejeita o cache em `/tmp` e `/opt/buildhome/.cache` no runner da Cloudflare.
+
+Para publicar manualmente (sem o build automático), o comando equivalente é:
+
 ```bash
 npm run deploy
 ```
