@@ -12,8 +12,10 @@ import {AnimatedIdentity} from './animated-identity'
 import {CornerDetails} from './corner-details'
 import {TypedText} from '@/app/components/ui/typed-text'
 import {ExperienceTimeline} from './experience-timeline'
+import {useSite} from '@/app/components/providers/content-provider'
 
 export function PortfolioHome(){
+  const site=useSite()
   const t=useTranslations('Home')
   const showExperienceAndFooter:MouseEventHandler<HTMLAnchorElement>=event=>{
     const section=document.getElementById('experiencia')
@@ -29,7 +31,7 @@ export function PortfolioHome(){
 
     <section className="home-stage order-1 grid min-h-0 w-full place-items-center p-0 md:relative md:row-start-1 md:block md:min-h-[500px] md:py-20" aria-labelledby="portfolio-title">
       <div className="central-composition static flex w-full flex-col items-center gap-2.5 md:absolute md:top-1/2 md:left-1/2 md:w-[min(76vw,1000px)] md:-translate-x-1/2 md:-translate-y-1/2 md:gap-[clamp(16px,2vh,26px)]">
-        <AnimatedIdentity passion={t('passion')} role={t('role')}/>
+        <AnimatedIdentity passion={site.copy.homePassion} role={site.copy.homeRole}/>
         <Card className="scene-portrait relative z-10 mx-auto mt-5 aspect-square w-[clamp(120px,38vw,150px)] shrink-0 overflow-hidden rounded-[20px] p-0 shadow-[0_25px_50px_-12px_rgba(0,0,0,.5)] max-[380px]:mt-3 max-[380px]:w-[124px] md:mt-0 md:w-[clamp(130px,14vw,190px)] md:rounded-3xl">
           <Image src="/assets/fernando.png" alt={t('portraitAlt')} fill priority sizes="(max-width: 768px) 170px, 285px" className="object-cover"/>
         </Card>
@@ -38,7 +40,7 @@ export function PortfolioHome(){
 
     <div className="home-summary scene-item order-2 mt-2 grid w-full items-end justify-items-center gap-1 p-0 text-center text-body leading-normal text-[color-mix(in_srgb,var(--paper)_80%,transparent)] md:mt-0 md:hidden">
       <span className="text-[9px] font-[760] tracking-[.18em] uppercase opacity-58">{t('aboutLabel')}</span>
-      <p className="m-0 max-w-[32ch] md:ml-auto md:max-w-none md:whitespace-pre-line"><TypedText text={t('about')}/></p>
+      <p className="m-0 max-w-[32ch] md:ml-auto md:max-w-none md:whitespace-pre-line"><TypedText text={site.copy.homeAbout}/></p>
     </div>
     <aside className="home-summary-desktop home-scroll-fade scene-item absolute bottom-[3.5vh] left-[4.5vw] z-12 hidden w-[min(21vw,250px)] text-left text-[color-mix(in_srgb,var(--paper)_88%,transparent)] md:block md:max-[1100px]:w-[210px] md:will-change-[transform,opacity]">
       <p className="m-0 origin-left -rotate-2 font-display text-[clamp(24px,2vw,30px)] leading-none italic"><TypedText text={t('resumeEyebrow')}/></p>

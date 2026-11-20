@@ -25,8 +25,8 @@ async function readDoc<T>(doc: ContentDoc): Promise<T | null> {
 
 export async function getSite(): Promise<SiteContent> {
   const stored = await readDoc<Partial<SiteContent>>(SITE_DOC)
-  if (!stored) return seedSite
-  return {
+  if (!stored) return sanitizeSite(seedSite)
+  return sanitizeSite({
     ...seedSite,
     ...stored,
     identity: {...seedSite.identity, ...(stored.identity ?? {})},
@@ -40,16 +40,40 @@ export async function getSite(): Promise<SiteContent> {
     resumeSkills: stored.resumeSkills ?? seedSite.resumeSkills,
     sectionNumbers: stored.sectionNumbers ?? seedSite.sectionNumbers,
     networks: stored.networks ?? seedSite.networks,
-  }
+  })
 }
 
 export async function getProjects(): Promise<Project[]> {
   const stored = await readDoc<Project[]>(PROJECTS_DOC)
-  return stored?.length ? stored : seedProjects
+  return sanitizeProjects(stored?.length ? stored : seedProjects)
 }
 
 export async function getProjectsWithTrees(): Promise<ProjectWithTree[]> {
   return (await getProjects()).map(withTree)
+}
+
+const SAFE_PROTOCOL = /^https?:\/\//i
+
+function safeUrl(value: unknown, fallback = ''): string {
+  const text = typeof value === 'string' ? value.trim() : ''
+  if (!text) return fallback
+  return SAFE_PROTOCOL.test(text) ? text : fallback
+}
+
+export function sanitizeSite(site: SiteContent): SiteContent {
+  return {
+    ...site,
+    contacts: {
+      email: site.contacts.email,
+      linkedin: safeUrl(site.contacts.linkedin),
+      github: safeUrl(site.contacts.github),
+      x: safeUrl(site.contacts.x),
+    },
+  }
+}
+
+export function sanitizeProjects(projects: Project[]): Project[] {
+  return projects.map(project => ({...project, url: safeUrl(project.url)}))
 }
 
 function assertValid(doc: ContentDoc, value: unknown): void {
@@ -76,6 +100,7 @@ function assertValid(doc: ContentDoc, value: unknown): void {
 
 export async function saveContent(doc: ContentDoc, value: unknown): Promise<string> {
   assertValid(doc, value)
+  value = doc === SITE_DOC ? sanitizeSite(value as SiteContent) : sanitizeProjects(value as Project[])
   const db = await getDb()
   if (!db) throw new Error('Banco de dados indisponível.')
   const json = JSON.stringify(value)

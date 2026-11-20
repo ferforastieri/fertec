@@ -19,6 +19,7 @@ export async function POST(request: Request) {
     revalidatePath('/', 'layout')
     return NextResponse.json({ok: true, ...result})
   } catch (error) {
-    return NextResponse.json({error: error instanceof Error ? error.message : 'Falha ao restaurar.'}, {status: 400})
+    console.error('Falha ao restaurar versão', error)
+    return NextResponse.json({error: 'Falha ao restaurar.'}, {status: 400})
   }
 }

@@ -14,8 +14,8 @@ export function GlobalProfileCorner(){
   const site=useSite()
   const profile=useTranslations('Profile')
   return <aside className="global-profile global-profile--corner scene-item relative z-30 mx-auto mt-6 mb-[calc(32px+env(safe-area-inset-bottom))] hidden w-[min(calc(100%_-_48px),300px)] border-t border-[color-mix(in_srgb,var(--paper)_32%,transparent)] pt-6 text-center text-[color-mix(in_srgb,var(--paper)_92%,transparent)] md:fixed md:top-[26px] md:right-[4.5vw] md:m-0 md:block md:w-[min(32vw,300px)] md:border-0 md:pt-0 md:text-right md:will-change-[transform,opacity]">
-      <p className="global-profile__signature m-0 origin-center -rotate-3 font-display text-[clamp(28px,8vw,35px)] leading-none italic md:origin-right md:text-[clamp(24px,2.2vw,32px)]"><TypedText text={profile('signature')}/></p>
-      <p className="global-profile__introduction mt-2 mb-0 ml-auto max-w-[30ch] text-balance text-[10px] leading-[1.4] font-[560] text-[color-mix(in_srgb,var(--paper)_88%,transparent)]"><TypedText text={profile('introduction')}/></p>
+      <p className="global-profile__signature m-0 origin-center -rotate-3 font-display text-[clamp(28px,8vw,35px)] leading-none italic md:origin-right md:text-[clamp(24px,2.2vw,32px)]"><TypedText text={site.copy.profileSignature}/></p>
+      <p className="global-profile__introduction mt-2 mb-0 ml-auto max-w-[30ch] text-balance text-[10px] leading-[1.4] font-[560] text-[color-mix(in_srgb,var(--paper)_88%,transparent)]"><TypedText text={site.copy.profileIntroduction}/></p>
       <HomePillLink className="mt-2" href={site.contacts.linkedin} label={profile('cta')} external/>
     </aside>
 }
@@ -59,8 +59,8 @@ export function GlobalFooter({hideOnHome=false}:{hideOnHome?:boolean}={}){
   return <footer id="contato" className={`global-profile relative z-10 mx-auto mt-10 w-[calc(100%_-_36px)] px-1 pt-0 text-paper md:mt-16 md:w-[calc(100%_-_9vw)] md:border-t md:border-[color-mix(in_srgb,var(--paper)_22%,transparent)] md:px-0 md:pt-5 ${navPosition==='bottom'?'pb-[calc(88px+env(safe-area-inset-bottom))] md:pb-[88px]':'pb-[calc(24px+env(safe-area-inset-bottom))] md:pb-5'}`}>
       <div className="mx-auto flex w-full max-w-[420px] flex-col items-center border-y border-[color-mix(in_srgb,var(--paper)_28%,transparent)] px-1 py-6 text-center md:hidden">
         <p className="m-0 text-micro font-[760] tracking-[.22em] uppercase opacity-48">{profile('eyebrow')}</p>
-        <p className="global-profile__signature mt-4 mb-0 origin-center -rotate-2 font-display text-[clamp(32px,8.5vw,42px)] leading-[.82] italic"><TypedText text={profile('signature')}/></p>
-        <p className="global-profile__introduction mt-5 mb-0 max-w-[32ch] text-caption leading-[1.55] font-[540] opacity-68"><TypedText text={profile('introduction')}/></p>
+        <p className="global-profile__signature mt-4 mb-0 origin-center -rotate-2 font-display text-[clamp(32px,8.5vw,42px)] leading-[.82] italic"><TypedText text={site.copy.profileSignature}/></p>
+        <p className="global-profile__introduction mt-5 mb-0 max-w-[32ch] text-caption leading-[1.55] font-[540] opacity-68"><TypedText text={site.copy.profileIntroduction}/></p>
         <a className="global-profile__contact group mt-5 inline-flex min-h-9 items-center gap-2.5 rounded-lg border border-[color-mix(in_srgb,var(--paper)_54%,transparent)] px-3 py-1.5 text-caption font-[760] tracking-[.13em] text-inherit uppercase no-underline transition-[background,color,transform] duration-250 hover:-translate-y-0.5 hover:bg-paper hover:text-ink focus-visible:-translate-y-0.5 focus-visible:bg-paper focus-visible:text-ink focus-visible:outline-none" href={`mailto:${site.contacts.email}`}><span>{profile('cta')}</span><span className="font-display text-base font-normal transition-transform duration-250 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true">↗</span></a>
       </div>
 

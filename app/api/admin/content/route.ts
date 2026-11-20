@@ -28,7 +28,9 @@ export async function PUT(request: Request) {
     if (body.site) await saveContent('site', body.site)
     if (body.projects) await saveContent('projects', body.projects)
   } catch (error) {
-    return NextResponse.json({error: error instanceof Error ? error.message : 'Falha ao salvar.'}, {status: 400})
+    console.error('Falha ao salvar conteúdo', error)
+    const message = error instanceof Error ? error.message : ''
+    return NextResponse.json({error: /obrigat|inválid|duplicado|sem título/i.test(message) ? message : 'Falha ao salvar.'}, {status: 400})
   }
   revalidatePath('/', 'layout')
   return NextResponse.json({ok: true, savedAt: new Date().toISOString()})

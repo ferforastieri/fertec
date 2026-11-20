@@ -148,7 +148,7 @@ export function ResumePage(){
         pdf.setTextColor(120,120,120)
         pdf.text(`${site.identity.name} · ${page}/${pages}`,pageWidth-margin,pageHeight-10,{align:'right'})
       }
-      pdf.save(t('downloadFileName'))
+      pdf.save(site.copy.downloadFileName||t('downloadFileName'))
     }catch(error){console.error('Não foi possível gerar o currículo em PDF.',error)}finally{setExporting(false)}
   }
   const pill='group inline-flex min-h-8 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg border border-[color-mix(in_srgb,var(--paper)_34%,transparent)] bg-transparent px-2.5 text-center text-[10px] leading-none font-bold tracking-[.09em] text-inherit uppercase no-underline transition-[background,color,border-color] duration-200 hover:border-paper hover:bg-paper hover:text-ink'

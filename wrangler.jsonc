@@ -4,7 +4,7 @@
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-10-20",
   "compatibility_flags": ["nodejs_compat"],
-  "workers_dev": true,
+  "workers_dev": false,
   "observability": {
     "enabled": true
   },

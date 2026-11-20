@@ -16,10 +16,12 @@ export function ProjectsPage(){
   const root=useRef<HTMLDivElement>(null)
   const stage=useRef<HTMLDivElement>(null)
   const projectIndex=useRef<HTMLElement>(null)
-  const [group,setGroup]=useState<ProjectGroup>('personal')
+  const firstGroup:ProjectGroup=projects.some(project=>project.group==='personal')?'personal':'professional'
+  const [group,setGroup]=useState<ProjectGroup>(firstGroup)
   const [activeIndex,setActiveIndex]=useState(0)
   const items=projects.filter(project=>project.group===group).sort((a,b)=>Number(b.id==='miraj')-Number(a.id==='miraj'))
   const active=items[activeIndex]??items[0]
+  if(!active)return <div className="editorial-page pt-4"><p className="text-body opacity-70">Nenhum projeto publicado ainda.</p></div>
   const action='inline-flex items-center gap-2 rounded-lg border border-[color-mix(in_srgb,var(--paper)_38%,transparent)] px-3 py-2 text-caption font-bold tracking-[.09em] text-inherit uppercase no-underline transition-[background,color,transform] duration-250 hover:-translate-y-0.5 hover:bg-paper hover:text-ink'
 
   useScrollReveal(root,'.project-reveal')

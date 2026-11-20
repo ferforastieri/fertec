@@ -153,13 +153,15 @@
         "id": "systems",
         "school": "Universidade Paulista · UNIP",
         "course": "Análise e Desenvolvimento de Sistemas",
-        "period": "Jan 2019 — Dez 2022"
+        "period": "Jan 2019 — Dez 2022",
+        "note": "Realizado simultaneamente com Engenharia da Computação"
       },
       {
         "id": "computer",
         "school": "Centro Universitário Facens",
         "course": "Engenharia da Computação",
-        "period": "Jan 2017 — Dez 2023"
+        "period": "Jan 2017 — Dez 2023",
+        "note": "Realizado simultaneamente com ADS"
       },
       {
         "id": "ai",

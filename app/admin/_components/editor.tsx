@@ -302,6 +302,9 @@ export function Editor({email}: {email: string}) {
                     <Field label="Período" value={entry.period} onChange={value => updateSite(draft => { draft.education[index].period = value })} />
                     <button className={ghostButton} type="button" onClick={() => updateSite(draft => { draft.education.splice(index, 1) })}>×</button>
                   </div>
+                  <div className="sm:col-span-3">
+                    <Field label="Observação (opcional)" value={entry.note ?? ''} onChange={value => updateSite(draft => { draft.education[index].note = value })} />
+                  </div>
                 </div>
               ))}
             </Section>

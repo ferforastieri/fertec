@@ -1,7 +1,7 @@
 import {cookies} from 'next/headers'
 import {getDb} from '@/lib/db'
 
-const COOKIE = 'fertec_admin'
+const cookieName = () => (process.env.NODE_ENV === 'production' ? '__Host-fertec_admin' : 'fertec_admin')
 const SESSION_DAYS = 7
 const ITERATIONS = 210_000
 
@@ -87,7 +87,7 @@ export async function startSession(userId: number): Promise<void> {
     .bind(id, userId, expires.toISOString(), new Date().toISOString())
     .run()
   const store = await cookies()
-  store.set(COOKIE, token, {
+  store.set(cookieName(), token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
@@ -98,7 +98,7 @@ export async function startSession(userId: number): Promise<void> {
 
 export async function currentAdmin(): Promise<{id: number; email: string} | null> {
   const store = await cookies()
-  const token = store.get(COOKIE)?.value
+  const token = store.get(cookieName())?.value
   if (!token) return null
   const db = await getDb()
   if (!db) return null
@@ -114,7 +114,7 @@ export async function currentAdmin(): Promise<{id: number; email: string} | null
 
 export async function endSession(): Promise<void> {
   const store = await cookies()
-  const token = store.get(COOKIE)?.value
+  const token = store.get(cookieName())?.value
   if (token) {
     const db = await getDb()
     if (db) {
@@ -122,29 +122,38 @@ export async function endSession(): Promise<void> {
       await db.prepare('DELETE FROM admin_sessions WHERE id = ?1').bind(id).run()
     }
   }
-  store.delete(COOKIE)
+  store.delete(cookieName())
 }
 
-export async function tooManyAttempts(ip: string): Promise<boolean> {
+// Insere e confere no mesmo comando, para pedidos paralelos não furarem o limite.
+export async function registerAttempt(key: string): Promise<boolean> {
   const db = await getDb()
-  if (!db) return false
-  const since = new Date(Date.now() - 15 * 60_000).toISOString()
-  const row = await db
-    .prepare('SELECT COUNT(*) AS total FROM admin_login_attempts WHERE ip = ?1 AND created_at > ?2')
-    .bind(ip, since)
-    .first<{total: number}>()
-  return (row?.total ?? 0) >= 5
+  if (!db) return true
+  const now = new Date()
+  const since = new Date(now.getTime() - 15 * 60_000).toISOString()
+  const result = await db
+    .prepare(
+      'INSERT INTO admin_login_attempts (ip, created_at) SELECT ?1, ?2 WHERE (SELECT COUNT(*) FROM admin_login_attempts WHERE ip = ?1 AND created_at > ?3) < 5',
+    )
+    .bind(key, now.toISOString(), since)
+    .run()
+  return (result.meta.changes ?? 0) > 0
 }
 
-export async function recordAttempt(ip: string, success: boolean): Promise<void> {
+export async function clearAttempts(key: string): Promise<void> {
   const db = await getDb()
   if (!db) return
-  if (success) {
-    await db.prepare('DELETE FROM admin_login_attempts WHERE ip = ?1').bind(ip).run()
-    return
-  }
   await db
-    .prepare('INSERT INTO admin_login_attempts (ip, created_at) VALUES (?1, ?2)')
-    .bind(ip, new Date().toISOString())
+    .prepare('DELETE FROM admin_login_attempts WHERE ip = ?1 OR created_at < ?2')
+    .bind(key, new Date(Date.now() - 24 * 3_600_000).toISOString())
     .run()
+}
+
+// Hash fixo para gastar o mesmo tempo quando o e-mail não existe.
+const DUMMY_HASH = 'pbkdf2$sha256$210000$AAAAAAAAAAAAAAAAAAAAAA==$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='
+
+export async function verifyLogin(email: string, password: string): Promise<{id: number; email: string} | null> {
+  const user = await findUserByEmail(email)
+  const valid = await verifyPassword(password, user?.passwordHash ?? DUMMY_HASH)
+  return user && valid ? {id: user.id, email: user.email} : null
 }

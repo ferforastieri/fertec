@@ -14,7 +14,7 @@ O projeto foi construído para apresentar trabalho, trajetória e competências 
 - Painel em `/admin` para editar perfil, currículo, competências e projetos sem novo deploy.
 - Projetos pessoais e profissionais com detalhes técnicos e árvore de repositório.
 - Currículo completo com download em PDF.
-- Conteúdo em português, inglês e espanhol.
+- Interface em português, inglês e espanhol; o conteúdo editável é em português nesta versão.
 - Tema claro e escuro com preferência persistida.
 - PWA instalável com navegação offline básica.
 - Layout responsivo para desktop e celular.
