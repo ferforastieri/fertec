@@ -3,7 +3,8 @@ import {getDb} from '@/lib/db'
 
 const cookieName = () => (process.env.NODE_ENV === 'production' ? '__Host-fertec_admin' : 'fertec_admin')
 const SESSION_DAYS = 7
-const ITERATIONS = 210_000
+// O runtime dos Workers recusa PBKDF2 acima de 100_000 iterações.
+const ITERATIONS = 100_000
 
 const encoder = new TextEncoder()
 
@@ -150,7 +151,7 @@ export async function clearAttempts(key: string): Promise<void> {
 }
 
 // Hash fixo para gastar o mesmo tempo quando o e-mail não existe.
-const DUMMY_HASH = 'pbkdf2$sha256$210000$AAAAAAAAAAAAAAAAAAAAAA==$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='
+const DUMMY_HASH = 'pbkdf2$sha256$100000$AAAAAAAAAAAAAAAAAAAAAA==$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='
 
 export async function verifyLogin(email: string, password: string): Promise<{id: number; email: string} | null> {
   const user = await findUserByEmail(email)
