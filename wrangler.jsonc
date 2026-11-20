@@ -16,7 +16,7 @@
     {
       "binding": "DB",
       "database_name": "fertec-content",
-      "database_id": "TROCAR-PELO-ID-DO-D1",
+      "database_id": "fa9e33cb-fd3d-4633-b5c0-44bcca6d8293",
       "migrations_dir": "migrations"
     }
   ],
