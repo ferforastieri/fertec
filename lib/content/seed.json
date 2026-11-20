@@ -1,0 +1,911 @@
+{
+  "site": {
+    "identity": {
+      "name": "Fernando Forastieri",
+      "brand": "Fertec",
+      "jobTitle": "Engenheiro de Software Fullstack",
+      "location": "Sorocaba, São Paulo, Brasil"
+    },
+    "contacts": {
+      "email": "fernandoforastieri2@gmail.com",
+      "linkedin": "https://linkedin.com/in/fernando-forastieri",
+      "github": "https://github.com/ferforastieri",
+      "x": "https://x.com/viciofer"
+    },
+    "metrics": {
+      "years": "3+",
+      "projects": "20",
+      "drive": "100%"
+    },
+    "sectionNumbers": {
+      "objective": "01",
+      "experience": "02",
+      "education": "03",
+      "skills": "04",
+      "projects": "05",
+      "languages": "06"
+    },
+    "networks": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "x": "X",
+      "email": "E-mail"
+    },
+    "metadata": {
+      "titles": {
+        "projects": "Projetos de Software",
+        "resume": "Currículo"
+      },
+      "description": "Portfólio de Fernando Forastieri, engenheiro de software fullstack. Projetos em Next.js, React, Node.js, aplicativos, IA e infraestrutura.",
+      "projects": "Conheça projetos de software de Fernando Forastieri: aplicações web e mobile, APIs, plataformas SaaS, inteligência artificial e infraestrutura.",
+      "resume": "Currículo de Fernando Forastieri, engenheiro de software fullstack: experiência profissional, formação, projetos e competências técnicas.",
+      "projectPrefix": "Arquitetura, tecnologias e detalhes técnicos do projeto"
+    },
+    "languages": [
+      {
+        "locale": "pt-BR",
+        "flag": "🇧🇷",
+        "key": "portuguese",
+        "code": "PT"
+      },
+      {
+        "locale": "en",
+        "flag": "🇺🇸",
+        "key": "english",
+        "code": "EN"
+      },
+      {
+        "locale": "es",
+        "flag": "🇪🇸",
+        "key": "spanish",
+        "code": "ES"
+      }
+    ],
+    "resumeSkills": {
+      "frontend": [
+        "React",
+        "Next.js",
+        "React Native",
+        "TypeScript",
+        "Design Systems"
+      ],
+      "backend": [
+        "Node.js",
+        "NestJS",
+        "Express",
+        "REST APIs",
+        "WebSockets"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "MySQL",
+        "Firebase"
+      ],
+      "delivery": [
+        "Docker",
+        "Git",
+        "Testes",
+        "Infraestrutura",
+        "Redes"
+      ],
+      "management": [
+        "Gestão de projetos",
+        "Liderança técnica",
+        "Comunicação",
+        "Planejamento",
+        "Colaboração"
+      ]
+    },
+    "copy": {
+      "homePassion": "Apaixonado por interfaces, IA e Hardware",
+      "homeRole": "Engenheiro da Computação\npós-graduado em Gestão de Projetos.",
+      "homeAbout": "Sistemas complexos, aplicativos mobile,\nAPIs REST e plataformas SaaS completas.",
+      "profileSignature": "Fernando Forastieri",
+      "profileIntroduction": "Desenvolvedor fullstack com foco em gestão e experiência do usuário com IA.",
+      "resumeSummary": "Construo produtos digitais completos, conectando interfaces cuidadosas, APIs, aplicativos mobile, dados e infraestrutura. Minha formação em engenharia, software e inteligência artificial sustenta decisões técnicas sem perder o foco na experiência humana.",
+      "resumeRole": "Engenheiro de Software · Fullstack",
+      "resumeLocation": "Sorocaba, São Paulo · Brasil",
+      "resumeEyebrow": "Currículo profissional",
+      "resumeTitle": "Fernando Forastieri",
+      "downloadFileName": "curriculo-fernando-forastieri.pdf"
+    },
+    "experience": [
+      {
+        "id": "smart",
+        "company": "Smart S.A",
+        "role": "Desenvolvedor Fullstack · Júnior → Pleno",
+        "location": "Sorocaba, SP",
+        "period": "Jun 2023 — atual",
+        "description": "Desenvolvimento de plataformas web e mobile, APIs e sistemas internos. Atuação da definição de funcionalidades à arquitetura, testes, desempenho, integrações e evolução de produtos."
+      },
+      {
+        "id": "inet",
+        "company": "4iNet Operadora",
+        "role": "Técnico de Redes",
+        "location": "Sorocaba, SP",
+        "period": "Jan — Jul 2023",
+        "description": "Configuração e manutenção de redes e sistemas de comunicação, suporte técnico, conectividade e resolução de incidentes de infraestrutura."
+      },
+      {
+        "id": "getninjas",
+        "company": "GetNinjas",
+        "role": "Técnico em Informática",
+        "location": "São Paulo, Brasil",
+        "period": "2015 — 2023",
+        "description": "Suporte de hardware e software, instalação de redes locais, manutenção, segurança e documentação técnica para clientes."
+      }
+    ],
+    "education": [
+      {
+        "id": "administration",
+        "school": "Colégio Apolo",
+        "course": "Técnico em Administração",
+        "period": "Jan 2015 — Dez 2017"
+      },
+      {
+        "id": "it",
+        "school": "ETEC Fernando Prestes",
+        "course": "Técnico em Informática",
+        "period": "Jan 2017 — Dez 2019"
+      },
+      {
+        "id": "systems",
+        "school": "Universidade Paulista · UNIP",
+        "course": "Análise e Desenvolvimento de Sistemas",
+        "period": "Jan 2019 — Dez 2022",
+        "note": "Realizado simultaneamente com Engenharia da Computação"
+      },
+      {
+        "id": "computer",
+        "school": "Centro Universitário Facens",
+        "course": "Engenharia da Computação",
+        "period": "Jan 2017 — Dez 2023",
+        "note": "Realizado simultaneamente com ADS"
+      },
+      {
+        "id": "ai",
+        "school": "Universidade Paulista · UNIP Sorocaba",
+        "course": "Pós-graduação em Inteligência Artificial",
+        "period": "Jan 2022 — Dez 2024"
+      },
+      {
+        "id": "projectManagement",
+        "school": "Fundação Getulio Vargas · FGV",
+        "course": "Mestrado em Gestão de Projetos em TI",
+        "period": "Jan 2024 — atual"
+      }
+    ],
+    "resumeLanguages": [
+      {
+        "id": "portuguese",
+        "name": "Português",
+        "level": "Nativo",
+        "cefr": "C2"
+      },
+      {
+        "id": "english",
+        "name": "Inglês",
+        "level": "Intermediário",
+        "cefr": "B1"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": "miraj",
+      "title": "Miraj of Icarus",
+      "group": "personal",
+      "url": "https://mirajoficarus.com/",
+      "repository": "pessoal/miraj-of-icarus",
+      "tags": [
+        ".NET 10",
+        "C++20",
+        "Next.js"
+      ],
+      "technologies": [
+        ".NET 10",
+        "ASP.NET Core",
+        "Entity Framework Core",
+        "C++20",
+        "CMake",
+        "Wicked Engine",
+        "Next.js 16",
+        "React 19",
+        "PostgreSQL",
+        "Redis",
+        "Cloudflare Workers",
+        "R2",
+        "Docker Compose",
+        "Caddy"
+      ],
+      "services": [
+        "Portal e PWA",
+        "API de contas e personagens",
+        "Launcher Windows",
+        "Cliente nativo",
+        "Login Server",
+        "Coordinator e Lobby",
+        "Distribuição de releases"
+      ],
+      "description": "MMORPG reconstruído como plataforma com portal, launcher, cliente C++, API .NET e serviços de jogo distribuídos."
+    },
+    {
+      "id": "fertec",
+      "title": "Fertec",
+      "group": "personal",
+      "url": "https://github.com/ferforastieri/fertech",
+      "repository": "pessoal/fertech",
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      "technologies": [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS 4",
+        "next-intl",
+        "Web Animations API",
+        "jsPDF",
+        "Manrope",
+        "Instrument Serif"
+      ],
+      "services": [
+        "Portfólio web",
+        "Sistema de animação",
+        "Internacionalização",
+        "Temas persistentes",
+        "PWA e SEO"
+      ],
+      "description": "Este portfólio: uma experiência editorial em Next.js com temas, idiomas e transições de terminal."
+    },
+    {
+      "id": "atacte",
+      "title": "Atacte",
+      "group": "personal",
+      "url": "https://github.com/ferforastieri/atacte",
+      "repository": "pessoal/atacte",
+      "tags": [
+        "Vue 3",
+        "Expo",
+        "Express"
+      ],
+      "technologies": [
+        "Vue 3",
+        "Pinia",
+        "Vue Router",
+        "React Native",
+        "Expo",
+        "Electron",
+        "Express",
+        "Prisma",
+        "PostgreSQL",
+        "JWT",
+        "TOTP",
+        "AES-256",
+        "Tailwind CSS"
+      ],
+      "services": [
+        "API segura",
+        "Cliente web",
+        "Aplicativo mobile",
+        "Aplicativo desktop",
+        "Proxy Nginx"
+      ],
+      "description": "Gerenciador pessoal de senhas e notas seguras com criptografia, autenticação em dois fatores e aplicativo móvel."
+    },
+    {
+      "id": "valk",
+      "title": "Valk UI",
+      "group": "personal",
+      "url": "https://valkui.vercel.app",
+      "repository": "github/ferforastieri/valk-ui",
+      "tags": [
+        "React",
+        "TypeScript",
+        "CLI"
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Node.js CLI"
+      ],
+      "services": [
+        "Biblioteca de componentes",
+        "CLI de instalação",
+        "Documentação",
+        "Sistema de temas"
+      ],
+      "description": "Biblioteca de componentes React com CLI, temas e componentes inteiramente customizáveis."
+    },
+    {
+      "id": "vendedor",
+      "title": "Vendedor Gold",
+      "group": "professional",
+      "url": "https://vendedorgold.com.br",
+      "repository": "smart/vendedor-gold",
+      "tags": [
+        "React Native",
+        "React",
+        "NestJS"
+      ],
+      "technologies": [
+        "React",
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "NestJS",
+        "TypeORM",
+        "PostgreSQL",
+        "MongoDB",
+        "Firebase",
+        "Socket.IO",
+        "React Query",
+        "Zustand",
+        "Recharts"
+      ],
+      "services": [
+        "API NestJS",
+        "Firebase Functions",
+        "Painel web",
+        "Aplicativo mobile",
+        "Notificações e tempo real"
+      ],
+      "description": "Sistema de gestão para vendedores com pedidos, rotas, clientes, relatórios e aplicações web e mobile."
+    },
+    {
+      "id": "smart",
+      "title": "Smart",
+      "group": "professional",
+      "url": "",
+      "repository": "smart/smart",
+      "tags": [
+        "Express",
+        "React",
+        "MySQL"
+      ],
+      "technologies": [
+        "Node.js",
+        "Express 4",
+        "React 16",
+        "Sequelize",
+        "MySQL",
+        "MongoDB",
+        "Mongoose",
+        "Bee-Queue",
+        "JWT",
+        "Reactstrap",
+        "CoreUI",
+        "Material UI",
+        "Chart.js",
+        "Draft.js",
+        "Node Cron",
+        "Nodemailer",
+        "SFTP"
+      ],
+      "services": [
+        "API de fidelidade",
+        "Painel administrativo",
+        "Campanhas de e-mail e SMS",
+        "Filas e rotinas agendadas",
+        "Pontuação e resgates",
+        "Cartões-presente",
+        "Relatórios e dashboards"
+      ],
+      "description": "Plataforma de fidelidade com pontuação, resgates, campanhas, cartões-presente, relatórios e um painel administrativo completo."
+    },
+    {
+      "id": "parceiro",
+      "title": "Parceiro Gold",
+      "group": "professional",
+      "url": "https://parceirogold.com.br",
+      "repository": "smart/wpp-parceirogold",
+      "tags": [
+        "NestJS",
+        "Prisma",
+        "WhatsApp"
+      ],
+      "technologies": [
+        "NestJS",
+        "TypeScript",
+        "Prisma",
+        "Axios",
+        "Canvas",
+        "Jimp",
+        "RxJS"
+      ],
+      "services": [
+        "Automação WhatsApp",
+        "Geração de mídia",
+        "Persistência Prisma",
+        "Rotinas operacionais"
+      ],
+      "description": "Plataforma para distribuidores com estoque, distribuição, operação móvel e dashboard analítico."
+    },
+    {
+      "id": "pintor",
+      "title": "Clube Pro Pintor",
+      "group": "professional",
+      "url": "https://clubepropintor.com.br",
+      "repository": "smart/sw-app",
+      "tags": [
+        "Ionic",
+        "Angular",
+        "Capacitor"
+      ],
+      "technologies": [
+        "Ionic",
+        "Angular",
+        "TypeScript",
+        "Capacitor",
+        "RxJS",
+        "Firebase Analytics",
+        "Firebase Cloud Messaging",
+        "Swiper"
+      ],
+      "services": [
+        "Aplicativo Ionic",
+        "Build Android",
+        "Build iOS",
+        "Push notifications",
+        "Analytics"
+      ],
+      "description": "Ecossistema de produtos, cores e fidelidade com aplicativo móvel, painel web e serviços integrados."
+    },
+    {
+      "id": "dashboard",
+      "title": "Dashlab",
+      "group": "personal",
+      "url": "https://github.com/ferforastieri/dashlab",
+      "repository": "pessoal/dashlab",
+      "tags": [
+        "NestJS",
+        "React",
+        "Prisma"
+      ],
+      "technologies": [
+        "NestJS",
+        "React",
+        "TypeScript",
+        "Prisma",
+        "React Query",
+        "Vite",
+        "Tailwind CSS",
+        "Argon2",
+        "JWT",
+        "Sharp"
+      ],
+      "services": [
+        "API NestJS",
+        "Editor de dashboards",
+        "Autenticação",
+        "Processamento de imagens"
+      ],
+      "description": "Laboratório fullstack para dashboards, visualizações e experimentos com dados."
+    },
+    {
+      "id": "gabriel",
+      "title": "GabrielPro",
+      "group": "professional",
+      "url": "https://gabrielpro.com.br",
+      "repository": "smart/gabrielpro",
+      "tags": [
+        "Next.js",
+        "Express",
+        "Prisma"
+      ],
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Express",
+        "Prisma",
+        "Styled Components",
+        "Bootstrap",
+        "JWT",
+        "Winston",
+        "Node Schedule"
+      ],
+      "services": [
+        "API Express",
+        "Aplicação Next.js",
+        "Jobs agendados",
+        "Relatórios e dashboards"
+      ],
+      "description": "Site institucional de arquitetura construído em Next.js com princípios de Clean Architecture."
+    },
+    {
+      "id": "recomenda",
+      "title": "SW Recomenda",
+      "group": "professional",
+      "url": "",
+      "repository": "smart/sw-recomenda",
+      "tags": [
+        "Ionic",
+        "React",
+        "NestJS"
+      ],
+      "technologies": [
+        "Ionic",
+        "Angular",
+        "React",
+        "Material UI",
+        "NestJS",
+        "Prisma",
+        "AWS S3",
+        "Firebase",
+        "SendGrid",
+        "Redux",
+        "Capacitor"
+      ],
+      "services": [
+        "Aplicativo Ionic",
+        "API NestJS",
+        "Portal React",
+        "Aplicação de push",
+        "Storage S3"
+      ],
+      "description": "Sistema de recomendações com aplicativos, painel web, backend modular e serviço dedicado de notificações."
+    },
+    {
+      "id": "leoplus",
+      "title": "LeoPlus",
+      "group": "professional",
+      "url": "https://leoplus.com.br",
+      "repository": "private/leoplus",
+      "tags": [
+        "React",
+        "TypeScript",
+        "APIs"
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Material UI",
+        "Zustand",
+        "React Query",
+        "REST APIs"
+      ],
+      "services": [
+        "Portal de fidelidade",
+        "Campanhas",
+        "Resgates",
+        "Integrações com parceiros"
+      ],
+      "description": "Programa de fidelidade com múltiplos parceiros, campanhas, resgates e integrações por APIs."
+    },
+    {
+      "id": "mimelie",
+      "title": "Mimelie",
+      "group": "personal",
+      "url": "",
+      "repository": "pessoal/Mimelie",
+      "tags": [
+        "Next.js",
+        "NestJS",
+        "BullMQ"
+      ],
+      "technologies": [
+        "Turborepo",
+        "pnpm workspaces",
+        "Next.js",
+        "React",
+        "NestJS",
+        "Prisma",
+        "PostgreSQL",
+        "Redis",
+        "BullMQ",
+        "Cloudflare Workers",
+        "Railway",
+        "Zod"
+      ],
+      "services": [
+        "Loja e PWA",
+        "Painel operacional",
+        "API REST",
+        "Worker assíncrono",
+        "Outbox e webhooks",
+        "Integrações de pagamento e frete"
+      ],
+      "description": "Comércio digital em monorepo com loja, painel, API transacional, domínio compartilhado e workers de integração."
+    },
+    {
+      "id": "miriam",
+      "title": "Mundo de Miriam",
+      "group": "personal",
+      "url": "",
+      "repository": "pessoal/mundo-de-miriam",
+      "tags": [
+        "Vue 3",
+        "i18n",
+        "Vite"
+      ],
+      "technologies": [
+        "Vue 3",
+        "Vue Router",
+        "Vue I18n",
+        "TanStack Vue Query",
+        "Vite",
+        "HTML2Canvas",
+        "HTML2PDF",
+        "Vercel"
+      ],
+      "services": [
+        "Portfólio artístico",
+        "Galerias por categoria",
+        "Currículo em PDF",
+        "Internacionalização em seis idiomas",
+        "SEO estático",
+        "Estatísticas do Instagram"
+      ],
+      "description": "Portfólio artístico em Vue com seis idiomas, galerias por categoria, currículo em PDF e SEO estático."
+    },
+    {
+      "id": "familia",
+      "title": "Nossa Família",
+      "group": "personal",
+      "url": "",
+      "repository": "pessoal/my-family",
+      "tags": [
+        "Flutter",
+        "NestJS",
+        "Socket.IO"
+      ],
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "NestJS",
+        "MongoDB",
+        "Mongoose",
+        "Redis",
+        "BullMQ",
+        "Socket.IO",
+        "Firebase Cloud Messaging",
+        "Docker Compose",
+        "Nginx",
+        "Gitea Actions"
+      ],
+      "services": [
+        "Aplicativo Flutter web e Android",
+        "API modular",
+        "Chat em tempo real",
+        "Memórias e mídia",
+        "Listas compartilhadas",
+        "Localização familiar",
+        "Notificações e filas"
+      ],
+      "description": "Aplicativo familiar em Flutter com backend modular, chat, memórias, listas, localização e notificações em tempo real."
+    },
+    {
+      "id": "clienterei",
+      "title": "ClienteRei",
+      "group": "professional",
+      "url": "",
+      "repository": "smart/clienterei",
+      "tags": [
+        "Clean Architecture",
+        "React",
+        "Expo"
+      ],
+      "technologies": [
+        "TypeScript",
+        "Express",
+        "Fastify",
+        "Prisma",
+        "PostgreSQL",
+        "Redis",
+        "MSSQL",
+        "MySQL",
+        "React",
+        "Vite",
+        "React Native",
+        "Expo",
+        "React Query",
+        "Zustand",
+        "AWS S3",
+        "Twilio"
+      ],
+      "services": [
+        "API multi-integração",
+        "Portal de loja e painel",
+        "Aplicativo mobile",
+        "Carrinho e pedidos",
+        "Clube de benefícios",
+        "Promoções e cupons",
+        "Sincronizações e jobs"
+      ],
+      "description": "Plataforma omnichannel de pedidos e benefícios com Clean Architecture, painel React, aplicativo Expo e múltiplas integrações."
+    },
+    {
+      "id": "imperio",
+      "title": "Império Delivery",
+      "group": "professional",
+      "url": "",
+      "repository": "smart/imperio-delivery",
+      "tags": [
+        "NestJS",
+        "Expo",
+        "Vike"
+      ],
+      "technologies": [
+        "Turborepo",
+        "NestJS 11",
+        "TypeORM",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "BullMQ",
+        "Socket.IO",
+        "Expo",
+        "React Native",
+        "React 19",
+        "Vike",
+        "Mercado Pago",
+        "Firebase",
+        "Terraform",
+        "GCP"
+      ],
+      "services": [
+        "Aplicativo de delivery",
+        "Loja web",
+        "Painel administrativo",
+        "API e worker",
+        "Pedidos em tempo real",
+        "Pagamentos",
+        "Push notifications",
+        "Infraestrutura como código"
+      ],
+      "description": "Ecossistema de delivery com aplicativo, loja web, painel, pagamentos, pedidos em tempo real e infraestrutura na GCP."
+    },
+    {
+      "id": "morelli",
+      "title": "Morelli",
+      "group": "professional",
+      "url": "",
+      "repository": "smart/morelli",
+      "tags": [
+        "React",
+        "Express",
+        "Sequelize"
+      ],
+      "technologies": [
+        "React",
+        "Redux",
+        "Redux Saga",
+        "React Query",
+        "Express",
+        "Sequelize",
+        "MySQL",
+        "JWT",
+        "Recharts",
+        "ZXing",
+        "Quagga",
+        "Docker Compose"
+      ],
+      "services": [
+        "Portal de fidelidade",
+        "Painel administrativo",
+        "Pontuação por vendas",
+        "Resgates e prêmios",
+        "Antifraude",
+        "Leitura de código de barras",
+        "Relatórios operacionais"
+      ],
+      "description": "Plataforma de fidelidade e sell-out com pontuação, prêmios, antifraude, leitura de comprovantes e operação administrativa."
+    },
+    {
+      "id": "rehau",
+      "title": "Rehau Loyalty",
+      "group": "professional",
+      "url": "",
+      "repository": "smart/rehau",
+      "tags": [
+        "CQRS",
+        "NestJS",
+        "OCR"
+      ],
+      "technologies": [
+        "NestJS",
+        "CQRS",
+        "TypeORM",
+        "PostgreSQL",
+        "Redis",
+        "BullMQ",
+        "AWS S3",
+        "AWS Textract",
+        "Tesseract.js",
+        "React 19",
+        "Vite",
+        "React Query",
+        "Tailwind CSS",
+        "Playwright",
+        "Vitest"
+      ],
+      "services": [
+        "Portal do participante",
+        "Painel administrativo",
+        "Envio e validação de vendas",
+        "OCR assíncrono",
+        "Pontos e roleta",
+        "Prêmios e resgates",
+        "Exportações e push"
+      ],
+      "description": "Programa de fidelidade com CQRS, OCR assíncrono de vendas, pontos, roleta, prêmios e resgates."
+    },
+    {
+      "id": "sw-platform",
+      "title": "Clube Pro Pintor · Plataforma",
+      "group": "professional",
+      "url": "",
+      "repository": "smart/sw",
+      "tags": [
+        "React",
+        "Express",
+        "Sequelize"
+      ],
+      "technologies": [
+        "React",
+        "Redux Saga",
+        "Express",
+        "Sequelize",
+        "MySQL",
+        "Firebase",
+        "AWS SDK",
+        "FFmpeg",
+        "Puppeteer",
+        "PDFKit",
+        "Swagger",
+        "Docker"
+      ],
+      "services": [
+        "Portal do pintor",
+        "Painel administrativo",
+        "API de fidelidade",
+        "Cursos e treinamentos",
+        "Pontuação e resgates",
+        "Antifraude",
+        "Mídia, relatórios e PDFs"
+      ],
+      "description": "Plataforma web do Clube Pro Pintor com fidelidade, treinamento, conteúdo, antifraude e relatórios."
+    },
+    {
+      "id": "vendedor-ia",
+      "title": "Vendedor Gold IA",
+      "group": "professional",
+      "url": "",
+      "repository": "smart/vendedor-gold-ia-backend",
+      "tags": [
+        "FastAPI",
+        "LangGraph",
+        "pgvector"
+      ],
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "LangGraph",
+        "OpenAI API",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "pgvector",
+        "Redis",
+        "APScheduler",
+        "AWS S3",
+        "Docker"
+      ],
+      "services": [
+        "Assistente comercial com IA",
+        "Agente com ferramentas",
+        "Consultas e relatórios",
+        "Base de conhecimento vetorial",
+        "Alertas e agendamentos",
+        "Histórico de conversas",
+        "Workers assíncronos"
+      ],
+      "description": "Assistente comercial com agente de IA, ferramentas de dados, RAG, relatórios, alertas e agendamentos."
+    }
+  ]
+}

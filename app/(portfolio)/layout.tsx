@@ -1,6 +1,8 @@
 import type {ReactNode} from 'react'
 import {SiteFrame} from '@/app/components/ui/site-frame'
 
+export const dynamic='force-dynamic'
+
 export default function PortfolioLayout({children}:{children:ReactNode}){
   return <SiteFrame>{children}</SiteFrame>
 }

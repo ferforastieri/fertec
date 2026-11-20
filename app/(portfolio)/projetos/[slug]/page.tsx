@@ -2,10 +2,8 @@ import type {Metadata} from 'next'
 import {notFound} from 'next/navigation'
 import {ProjectDetailPage} from '../_components/project-detail-page'
 import {JsonLd} from '@/app/components/seo/json-ld'
-import {getProject,projects} from '@/messages/project-data'
-import messages from '@/messages/pt-BR.json'
+import {getProjectsWithTrees,getSite} from '@/lib/content/store'
 import {breadcrumbJsonLd,pageMetadata} from '@/app/seo'
 
-export function generateStaticParams(){return projects.map(project=>({slug:project.id}))}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const project=getProject(slug);if(!project)return{};const description=messages.Projects.items[project.id as keyof typeof messages.Projects.items];return pageMetadata(project.title,description,`/projetos/${project.id}/`)}
-export default async function Page({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const project=getProject(slug);if(!project)notFound();const breadcrumbs=breadcrumbJsonLd([{name:'Início',path:'/'},{name:'Projetos',path:'/projetos/'},{name:project.title,path:`/projetos/${project.id}/`}]);return <><JsonLd data={breadcrumbs}/><ProjectDetailPage project={project}/></>}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const [project,site]=await Promise.all([(await getProjectsWithTrees()).find(item=>item.id===slug),getSite()]);if(!project)return{};return pageMetadata(project.title,project.description,`/projetos/${project.id}/`,site)}
+export default async function Page({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const projects=await getProjectsWithTrees();const project=projects.find(item=>item.id===slug);if(!project)notFound();const breadcrumbs=breadcrumbJsonLd([{name:'Início',path:'/'},{name:'Projetos',path:'/projetos/'},{name:project.title,path:`/projetos/${project.id}/`}]);return <><JsonLd data={breadcrumbs}/><ProjectDetailPage project={project}/></>}

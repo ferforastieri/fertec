@@ -11,8 +11,10 @@ dist
 build
 .next
 out
+.open-next
 *.tsbuildinfo
 .wrangler
+.dev.vars
 
 # Misc
 .DS_Store

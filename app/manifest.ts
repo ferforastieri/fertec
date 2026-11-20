@@ -1,9 +1,9 @@
 import type {MetadataRoute} from 'next'
-import {siteContent} from '@/messages/site-content'
+import {getSite} from '@/lib/content/store'
 
-export const dynamic='force-static'
+export const dynamic='force-dynamic'
 
-export default function manifest():MetadataRoute.Manifest{return{
+export default async function manifest():Promise<MetadataRoute.Manifest>{const siteContent=await getSite();return{
   name:`${siteContent.identity.brand} — ${siteContent.identity.name}`,
   short_name:siteContent.identity.brand,
   description:siteContent.metadata.description,
