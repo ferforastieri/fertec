@@ -11,6 +11,7 @@ O projeto foi construído para apresentar trabalho, trajetória e competências 
 ## Funcionalidades
 
 - Home com apresentação, indicadores profissionais e linha do tempo.
+- Painel em `/admin` para editar perfil, currículo, competências e projetos sem novo deploy.
 - Projetos pessoais e profissionais com detalhes técnicos e árvore de repositório.
 - Currículo completo com download em PDF.
 - Conteúdo em português, inglês e espanhol.
@@ -24,10 +25,11 @@ O projeto foi construído para apresentar trabalho, trajetória e competências 
 | --- | --- |
 | Aplicação | Next.js 16, React 19 e TypeScript |
 | Estilo | Tailwind CSS 4, Manrope e Instrument Serif |
-| Conteúdo | next-intl |
+| Conteúdo | Cloudflare D1 |
+| Interface | next-intl |
 | PDF | jsPDF |
 | Animações | Web Animations API e `requestAnimationFrame` |
-| Hospedagem | Cloudflare Workers |
+| Hospedagem | Cloudflare Workers (OpenNext) |
 
 ## Arquitetura
 
@@ -52,7 +54,18 @@ messages/                     # textos e dados em PT, EN e ES
 public/                       # imagens, ícones e service worker
 ```
 
-O conteúdo editorial fica em `messages/`; os componentes cuidam apenas de apresentação e interação. As páginas são geradas estaticamente no build.
+O conteúdo editorial fica no D1 e é editado em `/admin`. `lib/content/seed.json` é a carga inicial usada enquanto o banco está vazio; `messages/` guarda só os rótulos de interface. As páginas são renderizadas no Worker a cada visita, para refletir a edição na hora.
+
+```text
+lib/
+├── auth.ts                   # senha (PBKDF2), sessão e limite de tentativas
+├── db.ts                     # binding D1
+└── content/                  # tipos, carga inicial e leitura/gravação
+app/
+├── admin/                    # login, primeiro acesso e painel
+└── api/admin/                # login, logout, conteúdo e histórico
+migrations/                   # tabelas do D1
+```
 
 ## Como rodar
 
@@ -71,15 +84,16 @@ Para gerar o build de produção:
 npm run build
 ```
 
-Para visualizar o build localmente:
+Para rodar o Worker com D1 local:
 
 ```bash
-npm start
+npm run db:migrate:local
+npm run preview
 ```
 
 ## Deploy
 
-O site é publicado na Cloudflare Workers. O deploy é automático a partir da branch `main` via Cloudflare Workers Builds.
+O site é publicado na Cloudflare Workers. O passo a passo (D1, token de setup e `npm run deploy`) está em `docs/deploy-cloudflare.md`.
 
 ## Licença
 

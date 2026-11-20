@@ -3,10 +3,15 @@
 import {useEffect,useRef} from 'react'
 import {useTranslations} from 'next-intl'
 import {HomePillLink} from '@/app/components/ui/home-pill-link'
+import {useSite} from '@/app/components/providers/content-provider'
 
-const experienceKeys=['smart','inet','getninjas'] as const
+function splitRole(role:string){
+  const [position,...progressionParts]=role.split(' · ')
+  return {position,progression:progressionParts.join(' · ')}
+}
 
 export function ExperienceTimeline(){
+  const site=useSite()
   const t=useTranslations('Experience')
   const root=useRef<HTMLElement>(null)
 
@@ -36,15 +41,15 @@ export function ExperienceTimeline(){
       <HomePillLink className="mt-6 md:mt-8" href="/curriculo" label={t('resumeCta')}/>
     </header>
     <div className="timeline-body relative ml-0 max-w-[1060px] md:mx-auto"><div className="timeline-spine absolute top-1.5 bottom-1.5 left-1 w-px bg-[color-mix(in_srgb,var(--paper)_15%,transparent)] md:left-1/2" aria-hidden="true"><span className="timeline-spine-progress block h-full w-full origin-top bg-paper"/></div>
-    <ol className="experience-timeline grid list-none gap-4 p-0 md:m-0 md:gap-[clamp(56px,7vh,80px)]">{experienceKeys.map((key,index)=>{const right=index%2===1;return <li className={`timeline-entry timeline-entry--${right?'right':'left'} relative grid w-full grid-cols-[9px_minmax(0,1fr)] items-start gap-x-[21px] p-0 text-left opacity-0 motion-reduce:opacity-100 motion-reduce:transform-none md:grid-cols-[minmax(0,1fr)_70px_minmax(0,1fr)] md:gap-x-0 ${right?'md:text-left':'md:text-right'}`} key={key}>
+    <ol className="experience-timeline grid list-none gap-4 p-0 md:m-0 md:gap-[clamp(56px,7vh,80px)]">{site.experience.map((item,index)=>{const right=index%2===1;const {position,progression}=splitRole(item.role);return <li className={`timeline-entry timeline-entry--${right?'right':'left'} relative grid w-full grid-cols-[9px_minmax(0,1fr)] items-start gap-x-[21px] p-0 text-left opacity-0 motion-reduce:opacity-100 motion-reduce:transform-none md:grid-cols-[minmax(0,1fr)_70px_minmax(0,1fr)] md:gap-x-0 ${right?'md:text-left':'md:text-right'}`} key={item.id}>
       <span className="timeline-marker col-start-1 row-span-2 mt-[5px] h-[9px] w-[9px] rounded-full border-2 border-paper bg-ink md:col-start-2 md:row-start-1 md:mt-[7px] md:justify-self-center" aria-hidden="true"/>
-      <span className={`timeline-period col-start-2 row-start-1 mb-[11px] font-display text-[15px] leading-none opacity-62 md:row-start-1 md:mb-0 ${right?'md:col-start-1 md:pr-[25px] md:text-right':'md:col-start-3 md:pl-[25px] md:text-left'}`}>{t(`${key}.period`)}</span>
+      <span className={`timeline-period col-start-2 row-start-1 mb-[11px] font-display text-[15px] leading-none opacity-62 md:row-start-1 md:mb-0 ${right?'md:col-start-1 md:pr-[25px] md:text-right':'md:col-start-3 md:pl-[25px] md:text-left'}`}>{item.period}</span>
       <article className={`col-start-2 row-start-2 p-0 text-left md:row-start-1 ${right?'md:col-start-3 md:pl-[25px]':'md:col-start-1 md:pr-[25px] md:text-right'}`}>
-        <p className="m-0 mb-2 text-label font-[750] tracking-[.16em] uppercase opacity-56">{t(`${key}.company`)}</p>
-        <h3 className="m-0 font-display text-[clamp(26px,min(2.6vw,4.2vh),36px)] leading-[.95] font-normal">{t(`${key}.position`)}</h3>
-        <span className="mt-[9px] block text-label tracking-[.1em] uppercase opacity-50">{t(`${key}.location`)}</span>
-        <p className="timeline-summary mt-2.5 mb-0 text-body leading-[1.7] opacity-70 md:mt-[18px]">{t(`${key}.summary`)}</p>
-        {key==='smart'&&<div className={`role-progression mt-2.5 flex flex-wrap items-center justify-start gap-2 text-caption font-bold tracking-[.08em] uppercase md:mt-[18px] ${right?'md:justify-start':'md:justify-end'}`}><span className="rounded-lg border border-[color-mix(in_srgb,var(--paper)_28%,transparent)] px-[9px] py-1.5 opacity-62">{t('smart.junior')}</span><i className="font-display text-base not-italic opacity-42" aria-hidden="true">→</i><span className="rounded-lg border border-paper bg-paper px-[9px] py-1.5 text-ink opacity-100">{t('smart.pleno')}</span></div>}
+        <p className="m-0 mb-2 text-label font-[750] tracking-[.16em] uppercase opacity-56">{item.company}</p>
+        <h3 className="m-0 font-display text-[clamp(26px,min(2.6vw,4.2vh),36px)] leading-[.95] font-normal">{position}</h3>
+        <span className="mt-[9px] block text-label tracking-[.1em] uppercase opacity-50">{item.location}</span>
+        <p className="timeline-summary mt-2.5 mb-0 text-body leading-[1.7] opacity-70 md:mt-[18px]">{item.description}</p>
+        {progression&&<div className={`role-progression mt-2.5 flex flex-wrap items-center justify-start gap-2 text-caption font-bold tracking-[.08em] uppercase md:mt-[18px] ${right?'md:justify-start':'md:justify-end'}`}><span className="rounded-lg border border-[color-mix(in_srgb,var(--paper)_28%,transparent)] px-[9px] py-1.5 opacity-62">{progression.split('→')[0]?.trim()}</span><i className="font-display text-base not-italic opacity-42" aria-hidden="true">→</i><span className="rounded-lg border border-paper bg-paper px-[9px] py-1.5 text-ink opacity-100">{progression.split('→')[1]?.trim()}</span></div>}
       </article>
     </li>})}</ol></div>
   </section>

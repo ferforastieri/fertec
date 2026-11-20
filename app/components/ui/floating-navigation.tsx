@@ -6,7 +6,7 @@ import {useTranslations} from 'next-intl'
 import {usePathname} from 'next/navigation'
 import {usePreferences,type Locale} from './preferences-provider'
 import {SocialIcon} from './social-icon'
-import {siteContent} from '@/messages/site-content'
+import {useSite} from '@/app/components/providers/content-provider'
 
 const iconClass='nav-icon h-[15px] w-[15px] md:h-[18px] md:w-[18px]'
 const controlBase='nav-control h-9 w-9 place-items-center rounded-lg border-0 bg-transparent p-0 text-inherit no-underline transition-colors duration-200 hover:bg-paper hover:text-ink focus-visible:bg-paper focus-visible:text-ink focus-visible:shadow-[inset_0_0_0_1px_var(--ink),0_0_0_2px_var(--paper)] focus-visible:outline-none'
@@ -14,9 +14,9 @@ const activeBackground='bg-[color-mix(in_srgb,var(--paper)_16%,transparent)]'
 
 function Icon({children}:{children:ReactNode}){return <svg className={iconClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{children}</svg>}
 
-const languageOptions:ReadonlyArray<{locale:Locale;flag:string;key:'portuguese'|'english'|'spanish';code:string}>=siteContent.languages
-
 export function FloatingNavigation(){
+  const site=useSite()
+  const languageOptions:ReadonlyArray<{locale:Locale;flag:string;key:'portuguese'|'english'|'spanish';code:string}>=site.languages as never
   const {locale,setLocale,theme,toggleTheme,navPosition,cycleNavPosition}=usePreferences()
   const pathname=usePathname()
   const currentPath=pathname.replace(/\/$/,'')||'/'
@@ -64,9 +64,9 @@ export function FloatingNavigation(){
       <Link className={control(currentPath.startsWith('/projetos'))} style={selectedStyle(currentPath.startsWith('/projetos'))} href="/projetos" aria-current={currentPath.startsWith('/projetos')?'page':undefined} aria-label={t('projects')} title={t('projects')}><Icon><path d="M4 7h16v12H4zM8 7V4h8v3"/></Icon><span className="sr-only">{t('projects')}</span></Link>
       <Link className={control(currentPath==='/curriculo')} style={selectedStyle(currentPath==='/curriculo')} href="/curriculo" aria-current={currentPath==='/curriculo'?'page':undefined} aria-label={t('resume')} title={t('resume')}><Icon><path d="M6 3h9l3 3v15H6zM15 3v4h4M9 11h6M9 15h6M9 18h4"/></Icon><span className="sr-only">{t('resume')}</span></Link>
       <span className={`${vertical?'my-px h-px w-[18px] md:my-0.75 md:h-px md:w-5':'mx-px h-[18px] w-px md:mx-0.75 md:h-5'} bg-[color-mix(in_srgb,var(--paper)_22%,transparent)] hidden md:block`} aria-hidden="true"/>
-      <a className={desktopControl()} href={siteContent.contacts.github} target="_blank" rel="noreferrer" aria-label={siteContent.networks.github} title={siteContent.networks.github}><SocialIcon network="github" className={iconClass}/></a>
-      <a className={desktopControl()} href={siteContent.contacts.linkedin} target="_blank" rel="noreferrer" aria-label={siteContent.networks.linkedin} title={siteContent.networks.linkedin}><SocialIcon network="linkedin" className={iconClass}/></a>
-      <a className={desktopControl()} href={siteContent.contacts.x} target="_blank" rel="noreferrer" aria-label={siteContent.networks.x} title={siteContent.networks.x}><SocialIcon network="x" className={iconClass}/></a>
+      <a className={desktopControl()} href={site.contacts.github} target="_blank" rel="noreferrer" aria-label={site.networks.github} title={site.networks.github}><SocialIcon network="github" className={iconClass}/></a>
+      <a className={desktopControl()} href={site.contacts.linkedin} target="_blank" rel="noreferrer" aria-label={site.networks.linkedin} title={site.networks.linkedin}><SocialIcon network="linkedin" className={iconClass}/></a>
+      <a className={desktopControl()} href={site.contacts.x} target="_blank" rel="noreferrer" aria-label={site.networks.x} title={site.networks.x}><SocialIcon network="x" className={iconClass}/></a>
       <button className={control()} type="button" onClick={()=>setLanguagesOpen(open=>!open)} aria-label={`${t('language')}: ${currentLanguage.code}`} title={`${t('language')}: ${currentLanguage.code}`} aria-expanded={languagesOpen}><span className="text-[10px] font-extrabold tracking-[.08em] md:text-[11px]" aria-hidden="true">{currentLanguage.code}</span></button>
       <button className={control()} type="button" onClick={toggleTheme} aria-label={t('theme')} title={t('theme')}>{theme==='dark'?<Icon><circle cx="12" cy="12" r="3.6"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></Icon>:<Icon><path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"/></Icon>}</button>
       <button className={desktopControl()} type="button" onClick={cycleNavPosition} aria-label={t('move')} title={t('move')}><Icon>{vertical?<><path d="M4 12h16M7 9l-3 3 3 3M17 9l3 3-3 3"/></>:<><path d="M12 4v16M9 7l3-3 3 3M9 17l3 3 3-3"/></>}</Icon></button>

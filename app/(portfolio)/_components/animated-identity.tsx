@@ -1,9 +1,10 @@
 'use client'
 
 import {useEffect,useRef} from 'react'
-import {siteContent} from '@/messages/site-content'
+import {useSite} from '@/app/components/providers/content-provider'
 
 export function AnimatedIdentity({passion,role}:{passion:string;role:string}){
+  const siteContent=useSite()
   const prompt=useRef<HTMLParagraphElement>(null)
   const output=useRef<HTMLSpanElement>(null)
   const caret=useRef<HTMLSpanElement>(null)

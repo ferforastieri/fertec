@@ -1,16 +1,25 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "fertec",
+  "main": ".open-next/worker.js",
   "compatibility_date": "2026-10-20",
-  "workers_dev": false,
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
   "observability": {
     "enabled": true
   },
   "assets": {
-    "directory": "./out",
-    "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "fertec-content",
+      "database_id": "TROCAR-PELO-ID-DO-D1",
+      "migrations_dir": "migrations"
+    }
+  ],
   "routes": [
     {
       "pattern": "fer.tec.br/*",

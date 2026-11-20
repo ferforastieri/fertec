@@ -2,13 +2,13 @@
 
 import {useRef} from 'react'
 import {useTranslations} from 'next-intl'
-import type {Project} from '@/messages/project-data'
+import type {ProjectWithTree} from '@/lib/content/trees'
 import {RepositoryTree} from './repository-tree'
 import {useScrollReveal} from '@/app/hooks/use-scroll-reveal'
 import {getProjectInsight} from '@/messages/project-insights'
 import {ProjectLogo} from './project-logo'
 
-export function ProjectDetailPage({project}:{project:Project}){
+export function ProjectDetailPage({project}:{project:ProjectWithTree}){
   const t=useTranslations('Projects')
   const detail=useTranslations('ProjectDetail')
   const insight=getProjectInsight(project.id)
@@ -22,7 +22,7 @@ export function ProjectDetailPage({project}:{project:Project}){
       <div className="flex min-w-0 flex-col items-center gap-3 md:items-start">
         <p className="m-0 text-label font-[750] tracking-[.18em] uppercase opacity-50">{t(`groups.${project.group}`)}</p>
         <h1 className="m-0 max-w-full [overflow-wrap:anywhere] font-display text-[clamp(43px,14vw,58px)] leading-[.84] font-normal tracking-[-.055em] md:text-[clamp(52px,min(6.6vw,8.6vh),92px)] md:leading-[.78]">{project.title}</h1>
-        <span className="max-w-[48ch] text-body leading-[1.65] opacity-70 md:text-[13px] md:leading-[1.75]">{t(`items.${project.id}`)}</span>
+        <span className="max-w-[48ch] text-body leading-[1.65] opacity-70 md:text-[13px] md:leading-[1.75]">{project.description}</span>
       </div>
       <ProjectLogo id={project.id} title={project.title} framed={false} className="aspect-[5/4] w-[min(260px,76vw)] justify-self-center md:w-full md:self-center"/>
     </header>

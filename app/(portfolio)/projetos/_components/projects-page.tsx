@@ -3,7 +3,7 @@
 import {useEffect,useRef,useState} from 'react'
 import {useTranslations} from 'next-intl'
 import Link from 'next/link'
-import {projects} from '@/messages/project-data'
+import {useProjects} from '@/app/components/providers/content-provider'
 import {useScrollReveal} from '@/app/hooks/use-scroll-reveal'
 import {ProjectLogo} from './project-logo'
 
@@ -11,6 +11,7 @@ const groups=['personal','professional'] as const
 type ProjectGroup=(typeof groups)[number]
 
 export function ProjectsPage(){
+  const projects=useProjects()
   const t=useTranslations('Projects')
   const root=useRef<HTMLDivElement>(null)
   const stage=useRef<HTMLDivElement>(null)
@@ -50,7 +51,7 @@ export function ProjectsPage(){
           <div className="project-stage-motion flex min-h-[456px] w-full min-w-0 max-w-[820px] flex-col justify-self-center pt-4 pb-5 lg:h-[540px] lg:min-h-[540px] lg:py-4">
             <div className="grid items-center justify-items-center gap-6 lg:grid-cols-[120px_minmax(0,1fr)] lg:justify-items-stretch lg:gap-8"><ProjectLogo id={active.id} title={active.title} framed={false} preview/><h2 className="m-0 max-w-[14ch] [overflow-wrap:anywhere] font-display text-[clamp(47px,11vw,68px)] leading-[.86] font-normal tracking-[-.045em] md:text-[clamp(52px,min(4.6vw,6.4vh),66px)]">{active.title}</h2></div>
             <div className="mt-9 grid border-t border-[color-mix(in_srgb,var(--paper)_28%,transparent)] pt-7 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-9">
-              <div><p className="m-0 text-body leading-[1.75] opacity-84">{t(`items.${active.id}`)}</p><div className="mt-7 mb-6 flex flex-wrap justify-center gap-3 lg:justify-start"><Link className={action} href={`/projetos/${active.id}`}>{t('details')} <span className="font-display text-base">→</span></Link>{active.url&&<a className={action} href={active.url} target="_blank" rel="noreferrer">{t('external')} <span className="font-display text-base">↗</span></a>}</div></div>
+              <div><p className="m-0 text-body leading-[1.75] opacity-84">{active.description}</p><div className="mt-7 mb-6 flex flex-wrap justify-center gap-3 lg:justify-start"><Link className={action} href={`/projetos/${active.id}`}>{t('details')} <span className="font-display text-base">→</span></Link>{active.url&&<a className={action} href={active.url} target="_blank" rel="noreferrer">{t('external')} <span className="font-display text-base">↗</span></a>}</div></div>
               <aside className="mt-7 border-t border-[color-mix(in_srgb,var(--paper)_22%,transparent)] pt-6 pb-8 lg:mt-0 lg:border-t-0 lg:border-l lg:pt-0 lg:pb-7 lg:pl-7" aria-label={t(`groups.${active.group}`)}><p className="m-0 text-label font-bold tracking-[.14em] uppercase opacity-62">Stack</p><ul className="mt-4 mb-0 flex list-none flex-wrap justify-center gap-2 p-0 lg:justify-start">{active.technologies.slice(0,5).map(technology=><li className="content-chip max-w-full rounded-lg px-3 py-2 text-caption leading-none" key={technology}>{technology}</li>)}</ul></aside>
             </div>
             <section className="mt-auto border-t border-[color-mix(in_srgb,var(--paper)_28%,transparent)] pt-5 text-left" aria-label={t('scope')}><p className="m-0 text-label font-bold tracking-[.14em] uppercase opacity-62">{t('scope')}</p><ul className="mt-3 mb-0 grid list-none grid-cols-1 gap-x-7 p-0 sm:grid-cols-2">{active.services.slice(0,4).map((service,index)=><li className="grid grid-cols-[24px_minmax(0,1fr)] items-baseline gap-2 border-t border-[color-mix(in_srgb,var(--paper)_16%,transparent)] py-2 text-body-sm leading-[1.45]" key={service}><span className="font-display text-base tabular-nums opacity-42" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><span className="opacity-78">{service}</span></li>)}</ul></section>
