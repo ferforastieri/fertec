@@ -31,7 +31,7 @@ Configuração usada no painel (Settings → Build):
 | Variável de build | `NEXT_PUBLIC_SITE_URL=https://fer.tec.br` |
 | Variável de build | `SWC_NATIVE_BINDING_CACHE_SKIP_SECURITY_CHECK=1` |
 
-A última é contorno para o `@swc/core` 1.16.x, que rejeita o cache em `/tmp` e `/opt/buildhome/.cache` no runner da Cloudflare.
+O `@swc/core` está fixado em `1.15.33` via `overrides` no `package.json`: a série 1.16.x rejeita o cache em `/tmp` e `/opt/buildhome/.cache` no runner da Cloudflare e quebra o build. A variável acima é uma segunda proteção, caso o override seja removido.
 
 Para publicar manualmente (sem o build automático), o comando equivalente é:
 
